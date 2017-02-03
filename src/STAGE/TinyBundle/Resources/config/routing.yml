@@ -1,0 +1,3 @@
+stage_tiny_homepage:
+    path:     /
+    defaults: { _controller: STAGETinyBundle:Default:index }

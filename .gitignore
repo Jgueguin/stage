@@ -1,0 +1,29 @@
+/web/bundles/ #toute l’arborescence du dossier /www/bundles/
+/web/uploads # tout ce qui commence par /www/uploads (fichier & dossier)
+/app/bootstrap.php.cache
+/app/cache
+/app/config/parameters.yml
+/app/logs
+/app/SymfonyRequirements.php
+/app/check.php
+/app/config/custom.yml
+/app/phpunit.xml
+/build/
+/vendor/
+/bin/
+/composer.lock
+
+/www/config.php
+
+/.rules/
+
+
+#Linux files
+.bash_history
+.cache/
+.composer/
+.gitconfig
+.my.cnf
+.mysql_history
+.vim/
+.viminfo

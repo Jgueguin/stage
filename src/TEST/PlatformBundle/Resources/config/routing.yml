@@ -1,0 +1,35 @@
+# src/OC/PlatformBundle/Resources/config/routing.yml
+
+test_platform_home:
+    path:      /
+    defaults:
+        _controller: TESTPlatformBundle:Advert:index
+        page:        1
+    requirements:
+        page: \d*
+
+test_platform_view:
+    path:      /advert/{id}/
+    defaults:
+        _controller: TESTPlatformBundle:Advert:view
+    requirements:
+        id: \d+
+
+test_platform_add:
+    path:      /add/
+    defaults:
+        _controller: TESTPlatformBundle:Advert:add
+
+test_platform_edit:
+    path:      /edit/{id}/
+    defaults:
+        _controller: TESTPlatformBundle:Advert:edit
+    requirements:
+        id: \d+
+
+test_platform_delete:
+    path:      /delete/{id}/
+    defaults:
+        _controller: TESTPlatformBundle:Advert:delete
+    requirements:
+        id: \d+

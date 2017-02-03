@@ -1,0 +1,71 @@
+{# ///////////////////////////  #}
+{# // VUE PAGE Index TinyMCE //  #}
+{# ///////////////////////////  #}
+
+{% extends "STAGETinyBundle::layout.html.twig" %} {# heritage du layout du Bundle    #}
+
+{% block title %}
+  TinyMCE Test
+{% endblock %}
+
+
+
+{% block index_body %}
+    {{parent()}}
+    {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+
+    {# Définition des APIS et des scripts#}
+
+
+
+
+    <script >
+    //Sript de récupération des informations de la zone éditable de tinymce lors de l'appui sur le bouton récupérer
+    $(document).ready(function() {
+
+        $('input[type=button]').click(function() {
+
+        $texte=tinyMCE.activeEditor.getContent(); // recupération des éléments dans la zone editable de Tinymce
+
+        // Affichage dans la console des elements récupérés de tinymce
+        console.debug($texte);
+
+        // Affichage titre dans la zone vue utilisateur
+        $('#titre').html("<h1>Affichage du Contenu de la zone editable</h1>");
+
+        // Affichage dans la zone utilisateur des éléménts récupérés en html
+        $('#affichagehtml').html($texte);
+
+        // Affichage dans la zone utilisateur des éléménts récupérés en texte
+        $('#affichagetext').text($texte);
+
+        // $('form').submit();
+        });
+    });
+
+    </script>
+
+
+    {#  Insertion du script pour appeler tinymce et son fichier de config #}
+    <script src="{{asset("bundles/Framework/js/tinymce2/tinymce.min.js")}}"></script>
+    <script src="{{asset("bundles/framework/js/configimg2_tinymce.js")}}"></script>
+
+
+
+
+
+    <!-- Partie Affichage Utilisateur  -->
+
+    <!-- Insertion d'un formulaire avec une zone de texte ainsi qu'un bouton pour récupérer les infos-->
+    <form class="form1" action="" method="get">
+        <textarea ></textarea>
+        <input type="button" value="Récupérer" >
+    </form>
+
+
+    <!-- Zone Affichage-->
+    <div id="titre"></div>
+    <div id="affichagehtml"></div>
+    <div id="affichagetext"></div>
+
+{% endblock %}

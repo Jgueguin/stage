@@ -1,0 +1,32 @@
+
+test_platform_home:
+    path:      /platform/
+    defaults: { _controller: TESTPlatformBundle:Advert:index }
+
+test_platform_view:
+    path:      /platform/advert/{id}
+    defaults:
+        _controller: TESTPlatformBundle:Advert:view
+
+
+test_platform_view_slug:
+
+    path:      /platform/{year}/{slug}.{format}
+    defaults:
+         _controller: TESTPlatformBundle:Advert:viewSlug
+         format: html
+    requirements:
+        year:   \d{4}
+        format: html|xml
+
+test_platform_add:
+    path:      /platform/add/
+    defaults: { _controller: TESTPlatformBundle:Advert:add }
+
+test_platform_generateURL:
+    path:      /platform/genURL/
+    defaults: { _controller: TESTPlatformBundle:Advert:genURL }
+
+test_platform_generateURL2:
+    path:      /platform/genURL2/
+    defaults: { _controller: TESTPlatformBundle:Advert:genURL2 }

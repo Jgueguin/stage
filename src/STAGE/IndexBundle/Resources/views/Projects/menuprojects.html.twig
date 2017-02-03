@@ -1,0 +1,19 @@
+{# ////////////////////////////  #}
+{# // VUE Menu               //  #}
+{# ////////////////////////////  #}
+
+{# Cette vue n'hérite de personne, elle sera incluse par d'autres vues #}
+
+<nav class="navbar navbar-default">
+    <div class="container">
+
+        <ul class="nav navbar-nav " >
+
+            <li><a class="glyphicon glyphicon-list-alt" href="{{ path('liste_index_homepage')}}?page=1&title=&content=&page_limit=5" > List </a></li>
+            <li><a class="glyphicon glyphicon-plus"     href="{{ path('new_index_homepage')}}"> New Project </a></li>
+            <li><a class="glyphicon glyphicon-plus"     href="{{ path('new2_index_homepage')}}"> Insertion forcée dans DB </a></li>
+
+        </ul>
+
+    </div>
+</nav>

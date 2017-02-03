@@ -1,0 +1,23 @@
+{# src/STAGE/IndexBundle/Resources/views/layout.html.twig #}
+
+{# ///////////////////////////  #}
+{# // LAYOUT DU BUNDLE Index   #}
+{# ///////////////////////////  #}
+
+
+{% extends "::layout.html.twig" %} {# heritage du layout général du site #}
+
+{% block title %}
+  Accueil {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+{# Ajout des actions possibles sur les projets #}
+{{ include("STAGEIndexBundle:Projects:menuprojects.html.twig") }}
+
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+  {% block index_body %}
+  {% endblock %}
+
+{% endblock %}

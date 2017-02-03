@@ -1,0 +1,18 @@
+{# ///////////////////////////  #}
+{# // VUE PAGE DE GARDE / INDEX //  #}
+{# ///////////////////////////  #}
+
+{% extends "STAGEIndexBundle::layout.html.twig" %} {# heritage du layout du Bundle    #}
+
+{% block title %}
+  Home
+{% endblock %}
+
+{% block index_body %}
+
+    <a href="{{ path('liste_index_homepage')}}?page=1&title=&content=&page_limit=5" >
+        <img src="http://dse.me/upload/8b6db151f7445c11d9a4f2949a96af33df355e0a/entreprises/03603708ce4b944a3efd5e95703f4f5f7b42588f/grand/l1-200x200-1442983818.jpg" style=" width:350px;height:350px;" class="img-responsive center-block index">
+
+    </a>
+
+{% endblock %}

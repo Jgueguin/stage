@@ -1,0 +1,69 @@
+{# Affichage d'un Formulaire  #}
+
+<div class="well">
+
+
+    {# Début de formulaire  #}
+    {{ form_start(form,  {'attr': {'class': 'form-horizontal'}}) }}
+
+    {# Les erreurs générales du formulaire. #}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+
+        {# Génération du label. #}
+        {{ form_label(form.projTitle, "Title of the Project") }}
+        <br>
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.projTitle) }}
+
+        {# Génération de l'input. #}
+        {{ form_widget(form.projTitle) }}
+
+    </div>
+
+
+    {# Génération du label + error + widget pour un champ #}
+<div class="form-group">
+    {{ form_label(form.projDate, "Date") }}
+    {{ form_widget(form.projDate) }}
+
+    <br>
+</div>
+
+
+
+<div class="form-group">
+    {{ form_label(form.projDatemod, "Mod Date") }}
+    {{ form_widget(form.projDatemod) }}
+
+</div>
+
+
+
+
+    <br>
+
+
+    <div>
+
+        {# Génération du label. #}
+        {{ form_label(form.projDescr, "Content") }}
+        <br>
+
+        {# Affichage des erreurs pour ce champ précis. #}
+        {{ form_errors(form.projDescr) }}
+
+        {# Génération de l'input. #}
+        {{ form_widget(form.projDescr) }}
+
+    </div>
+
+    {{ form_rest(form) }}
+
+    {# Fin de formulaire  #}
+    {{ form_end(form) }}
+
+
+</div>

@@ -1,0 +1,23 @@
+{# src/STAGE/TinyBundle/Resources/views/layout.html.twig #}
+
+{# ////////////////////////////// #}
+{# // Layout du Bundle Tiny   // #}
+{# ////////////////////////////// #}
+
+{% extends "::layout.html.twig" %} {# héritage du Layout Général  #}
+
+{% block title %}
+  Tiny  {{ parent() }}
+{% endblock %}
+
+{% block body %}
+  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+
+
+
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+
+  {% block index_body %}
+  {% endblock %}
+
+{% endblock %}

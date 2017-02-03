@@ -1,0 +1,34 @@
+stage_index_homepage:
+    path:     /
+    defaults: { _controller: STAGEIndexBundle:Pagegarde:index }
+
+liste_index_homepage:
+    path:     /liste/
+    defaults: { _controller: STAGEIndexBundle:Projects:liste }
+
+new_index_homepage:
+    path:     /new/
+    defaults: { _controller: STAGEIndexBundle:Projects:new }
+
+new2_index_homepage:
+    path:     /new2/
+    defaults: { _controller: STAGEIndexBundle:Projects:new2 }
+
+modify_index_homepage:
+    path:     /modify/{id}/
+    defaults: { _controller: STAGEIndexBundle:Projects:modify }
+    requirements:
+        id: \d+
+
+
+delete_index_homepage:
+    path:     /delete/{id}/
+    defaults: { _controller: STAGEIndexBundle:Projects:delete }
+    requirements:
+        id: \d+
+
+view_index_homepage:
+    path:     /view/{id}/
+    defaults: { _controller: STAGEIndexBundle:Projects:view }
+    requirements:
+        id: \d+

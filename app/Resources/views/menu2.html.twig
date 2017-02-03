@@ -1,0 +1,12 @@
+{# ///////////////////////////  #}
+{# // Menu GENERAL DU SITE // #}
+{# ///////////////////////////  #}
+
+{# Cette vue n'hérite de personne, elle sera incluse par d'autres vues #}
+
+<ul class="nav nav-pills nav-stacked">
+    <li><a href="{{ path('stage_index_homepage')}}" class="glyphicon glyphicon-home" > Home</a></li>
+    <li><a class="glyphicon glyphicon-list-alt" href="{{ path('liste_index_homepage')}}?page=1&title=&content=&page_limit=5" > Projects List </a></li>
+    <li><a href="{{ path('stage_tiny_homepage')}}"  class="glyphicon glyphicon-wrench" > TinyMCE Test</a></li>
+    <li><a href="#" class="glyphicon glyphicon-log-in"> Sign Up</a></li>
+</ul>

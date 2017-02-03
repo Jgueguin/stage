@@ -1,0 +1,14 @@
+
+
+
+stage_index:
+    resource: "@STAGEIndexBundle/Resources/config/routing.yml"
+    prefix:   /
+
+stage_tiny:
+    resource: "@STAGETinyBundle/Resources/config/routing.yml"
+    prefix:   /tiny/
+
+test_platform:
+    resource: "@TESTPlatformBundle/Resources/config/routing.yml"
+    prefix:   /platform

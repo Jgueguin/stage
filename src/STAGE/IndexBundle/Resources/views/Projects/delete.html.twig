@@ -1,0 +1,20 @@
+
+{# //////////////////////////////  #}
+{# // VUE DELETION //  #}
+{# //////////////////////////////  #}
+
+{% extends "STAGEIndexBundle::layout.html.twig" %} {# heritage du layout du Bundle Index   #}
+
+{% block title %}
+No Project
+{% endblock %}
+
+{% block index_body %}
+
+{# Ajout des actions possibles sur les projets #}
+{{ include("STAGEIndexBundle:Projects:menuprojects.html.twig") }}
+
+{# <h1> <u> {{titre}}</u> </h1> #}
+<h1> {{info}} </h1>
+
+{% endblock %}

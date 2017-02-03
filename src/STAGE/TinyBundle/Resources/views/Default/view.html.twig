@@ -1,0 +1,27 @@
+{# ///////////////////////////  #}
+{# // VUE PAGE DE GARDE / INDEX //  #}
+{# ///////////////////////////  #}
+
+{% extends "STAGETinyBundle::layout.html.twig" %} {# heritage du layout du Bundle    #}
+
+
+{% block body %}
+
+    <h2> Bienvenue, On est ici dans la vue Index.html.twig du Bundle Tiny </h2>
+    <hr>
+    <img src="http://www.cedric-c.com/wp-content/uploads/2014/04/tinymce.jpg" >
+
+    {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+    {% block index_body %}
+    <h4> Insertion de texte dans le index_body du layout du Bundle Tiny  </h4>
+
+    {# Définition des APIS et des scripts#}
+
+    <!-- Zone Affichage-->
+    <div id="titre"></div>
+    <div id="affichagehtml"></div>
+    <div id="affichagetext"></div>
+
+    {% endblock %}
+
+{% endblock %}

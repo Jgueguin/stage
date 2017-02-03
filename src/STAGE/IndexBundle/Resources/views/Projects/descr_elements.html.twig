@@ -1,0 +1,19 @@
+{# /////////////////////////////////////////////// #}
+{# //////// Vue description d'un élement ///////// #}
+{# /////////////////////////////////////////////// #}
+
+{% extends "STAGEIndexBundle::layout.html.twig" %} {# heritage du layout du Bundle Index   #}
+
+<section class="listing">
+    <article >
+
+        <img src="{{asset("bundles/stageindex/images/folder.jpg")}}"  style="height:50px" class=" img_descr img-responsive">
+        <h2>Title of the element</h2>
+        <p>Description of the element !</p>
+        <p>   </p>
+
+        <a class="detail" href="#">Detail</a>
+        <a class="modify" href="{{path('modify_index_homepage')}}"> Modify </a>
+
+    </article>
+</section>

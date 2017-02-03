@@ -1,0 +1,22 @@
+{# src/TEST/PlatformBundle/Resources/views/layout.html.twig #}
+
+{% extends "::layout.html.twig" %}
+
+{% block title %}
+  Annonces - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+  {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
+  <h1>Annonces- TEST - on ici dans le layout du Bundle Platform</h1>
+  <img src ='http://www.dan-taxi.com/photo/art/grande/6897044-10543690.jpg?v=1407947752' style="width:500px;height:250px;border:0;">
+
+  <hr>
+
+  {# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
+  
+  {% block testplatform_body %}
+  {% endblock %}
+
+{% endblock %}
