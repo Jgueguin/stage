@@ -5,102 +5,106 @@
 {% extends "STAGEIndexBundle::layoutProject.html.twig" %} {# heritage du layout du Bundle StageIndex    #}
 
 {% block title %}
-Projects List
+    Projects List
 {% endblock %}
 
 {% block index_body %}
+    
+    <h1><u>Projects List</u></h1>
+    
+    <div>
+        <form name="form1" action="{{ path('liste_index_homepage') }}" method="get" >
+            <input type="submit" class="but" onclick="first()"    value="<<" readonly=""   {% if Page == 1 %} disabled="disabled"{% endif %}>
+            <input type="submit" class="but" onclick="backward()" value="<"  readonly="" {% if Page == 1 %} disabled="disabled"{% endif %}>
+            <input type="text"   class="but" value="{{Page}}"     name="page" min="1" max={{last}} readonly >
+            <input type="text" class="but" name="" value="/ {{last}}" readonly>
+            
+            
+            <input type="submit" class="but" onclick="forward()" value=">" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
+            <input type="submit" class="but" onclick="last()"    value=">>" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
+            
+            
+            <select  name="page_limit" onchange="location.href='{{ path('liste_index_homepage')}}?page={{Page}}&title={{title}}&content={{content}}&page_limit='+this.options[this.selectedIndex].value" >
+                <option value="0" {% if offset == 0 %}   selected="selected"  {% endif %}>All</option>
+                <option value="2" {% if offset == 2 %}   selected="selected"  {% endif %}>2</option>
+                <option value="5" {% if offset == 5 %}   selected="selected"  {% endif %}>5</option>
+                <option value="10" {% if offset == 10 %} selected="selected"  {% endif %}>10</option>
+                <option value="15" {% if offset == 15 %} selected="selected"  {% endif %}>15</option>
+                <option value="20" {% if offset == 20 %} selected="selected"  {% endif %}>20</option>
+            </select>
+            
+            <input type="text" name="title"   value="{{title}}"     placeholder="Title">
+            <input type="text" name="content" value="{{content}}" placeholder="Content" >
+            <input type="submit" name="submit" value="Search">
+            <input type='reset' value="Bis">
+            
+            
+            
+            <input type="text"   value="{{count}} elements in DB"  readonly >
+        
+        </form>
+    </div>
+    
+    <script>
+        function backward(){
+            var page = parseInt($("input[name='page']").val()) - 1;
+            $("input[name='page']").val(page);
+        }
 
-<h1><u>Projects List</u></h1>
+        function forward(){
 
-<div>
-    <form name="form1" action="{{ path('liste_index_homepage') }}" method="get" >
-        <input type="submit" class="but" onclick="first()"    value="<<" readonly=""   {% if Page == 1 %} disabled="disabled"{% endif %}>
-        <input type="submit" class="but" onclick="backward()" value="<"  readonly="" {% if Page == 1 %} disabled="disabled"{% endif %}>
-        <input type="text"   class="but" value="{{Page}}"     name="page" min="1" max={{last}} readonly >
-        <input type="text" class="but" name="" value="/ {{last}}" readonly>
+            var page = parseInt($("input[name='page']").val()) + 1;
+            $("input[name='page']").val(page);
+        }
 
+        function first(){
+            var page = 1;
+            $("input[name='page']").val(page);
+        }
 
-        <input type="submit" class="but" onclick="forward()" value=">" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
-        <input type="submit" class="but" onclick="last()"    value=">>" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
-
-
-        <select  name="page_limit" onchange="location.href='{{ path('liste_index_homepage')}}?page={{Page}}&title={{title}}&content={{content}}&page_limit='+this.options[this.selectedIndex].value" >
-            <option value="0" {% if offset == 0 %}   selected="selected"  {% endif %}>All</option>
-            <option value="2" {% if offset == 2 %}   selected="selected"  {% endif %}>2</option>
-            <option value="5" {% if offset == 5 %}   selected="selected"  {% endif %}>5</option>
-            <option value="10" {% if offset == 10 %} selected="selected"  {% endif %}>10</option>
-            <option value="15" {% if offset == 15 %} selected="selected"  {% endif %}>15</option>
-            <option value="20" {% if offset == 20 %} selected="selected"  {% endif %}>20</option>
-        </select>
-
-        <input type="text" name="title"   value="{{title}}"     placeholder="Title">
-        <input type="text" name="content" value="{{content}}" placeholder="Content">
-        <input type="submit" name="submit" value="Search">
-
-
-        <input type="text"   value="{{count}} elements in DB"  readonly >
-
-</form>
-</div>
-
-<script>
-function backward(){
-    var page = parseInt($("input[name='page']").val()) - 1;
-    $("input[name='page']").val(page);
-}
-
-function forward(){
-
-    var page = parseInt($("input[name='page']").val()) + 1;
-    $("input[name='page']").val(page);
-}
-
-function first(){
-    var page = 1;
-    $("input[name='page']").val(page);
-}
-
-function last(){
-    $("input[name='page']").val( {{last}} );
-}
-
-</script>
-
-
-
-{% for list in Projects %}
-<section class="listing">
-    <article >
-
-        <img src="{{asset("bundles/stageindex/images/folder.jpg")}}"  style="height:50px" class=" img_descr img-responsive">
-
-        <div class="content">
-            <p><u>Id</u>:             {{ list.id }}</p>
-            <h2><u>Title : </u>       {{ list.projTitle }}</h2>
-            <hr>
-
-            {% if list.projDate is not null %}
-            <p> Creation: {{ list.projDate| date('d/m/Y')}} </p>
-            <hr>
-
-            {% endif %}
-            <p><u>Description</u>: {{ list.projDescr|raw }}</p><br>
-        </div>
-
-        <div class="buttons">
-            <a  href="{{ path('view_index_homepage',{'id':list.id})   }}"> Detail</a>
-            <a  href="{{ path('modify_index_homepage',{'id':list.id}) }}"> Modify </a>
-            <a  href="{{ path('delete_index_homepage',{'id':list.id}) }}"> Delete </a>
-        </div>
-
-    </article>
-
-</section>
-
-
-<br>
-
-{% endfor %}
+        function last(){
+            $("input[name='page']").val( {{last}} );
+        }
+    
+    </script>
+    
+    {% if Projects|length == 0 %}
+        <h1> No results  </h1>
+    {% endif %}
+	
+	{% for list in Projects %}
+        <section class="listing">
+            <article >
+                
+                <img src="{{asset("bundles/stageindex/images/folder.jpg")}}"  style="height:50px" class=" img_descr img-responsive">
+                
+                <div class="content">
+                    <p><u>Id</u>:             {{ list.id }}</p>
+                    <h2><u>Title : </u>       {{ list.projTitle }}</h2>
+                    <hr>
+					
+					{% if list.projDate is not null %}
+                        <p> Creation: {{ list.projDate| date('d/m/Y')}} </p>
+                        <hr>
+					
+					{% endif %}
+                    <p><u>Description</u>: {{ list.projDescr|raw }}</p><br>
+                </div>
+                
+                <div class="buttons">
+                    <a  href="{{ path('view_index_homepage',{'id':list.id})   }}"> Detail</a>
+                    <a  href="{{ path('modify_index_homepage',{'id':list.id}) }}"> Modify </a>
+                    <a  href="{{ path('delete_index_homepage',{'id':list.id}) }}"> Delete </a>
+                </div>
+            
+            </article>
+        
+        </section>
+        
+        
+        <br>
+	
+	{% endfor %}
 
 
 {% endblock %}

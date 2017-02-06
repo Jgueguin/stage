@@ -12,3 +12,4 @@ stage_tiny:
 test_platform:
     resource: "@TESTPlatformBundle/Resources/config/routing.yml"
     prefix:   /platform
+
