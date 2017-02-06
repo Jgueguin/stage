@@ -26,13 +26,17 @@ class ProjectsController extends Controller
 
 
 
+        // on recupere en get la valeur page limit qui vient de la vue "Liste"
         //$limit <==> $_GET["page_limit"]
         $limit = $request->query->get( "page_limit" );
+
+        // si la valeur n'existe pas, on recupère la valeur qui a été enregistrée le coup d'avant dsans la variable SEssion
         if(!$limit){
             //$page <===> $_SESSION["page"]
             $limit = $session->get("page_limit");
         }
 
+        // au sinon, elle existe et on la rentre dans la variable Session
         $session->set("page_limit",$limit);
 
 
@@ -49,34 +53,28 @@ class ProjectsController extends Controller
 
         //$title <==> $_GET["title"]
         $title = $request->query->get( "title" );
-        if(!$title){
-            //$page <===> $_SESSION["page"]
-            $page = $session->get("title");
+        if(!$title)   {
+            //$title <===> $_SESSION["title"]
+            //$title = $session->get("title");
+             $title='';
+
         }
-
         $session->set("title",$title);
-
 
 
         //$content <==> $_GET["content"]
         $content = $request->query->get( "content" );
         if(!$content){
             //$content <===> $_SESSION["content"]
-            $content = $session->get("content");
+            // $content = $session->get("content");
+
+            $content='';
+
         }
 
         $session->set("content",$content);
 
 
-
-
-
-
-
-
-
-
-        
 
         if( !$page) {
             $page = 1;
@@ -86,12 +84,12 @@ class ProjectsController extends Controller
             $page = 1;
         }
 
-        if( !$title ) {
-            $title   = '';
-        }
-        if(!$content){
-            $content = '';
-        }
+       // if( !$title ) {
+         //   $title   = '';
+        //}
+        //if(!$content){
+         //   $content = '';
+        //}
 
         // On appelle le repository dans lequel se trouve toutes les informations de notre DB
         $repository = $this
@@ -116,33 +114,43 @@ class ProjectsController extends Controller
                     "param2"=>"%" . $title . "%"
                 ));
 
+
                 $result = $projects->getQuery()->getResult();
 
                 // ->>>>  Combien avons-nous d'élements qui répondent à la recherche ?????
                 $counter = count($result);
 
 
-                // calcul de la dernière page
-                $last = ($limit != 0)?ceil($counter/$limit):1;
 
 
-                // vérification en cas de changement d'élements par page et que l'on dépasse le nbre d"élément dans la DB
-                // on revient sur la dernière page
 
-                // Fonctionnalité Pagination
-                // cas où $limit n'est ni nul ni égal à 0, on effectue le calcul
+                    // calcul de la dernière page
+                    $last = ($limit != 0) ? ceil($counter / $limit) : 1;
 
-                // il faut aussi vérifier si on a un element en base
 
-                if ($limit != NULL && $limit != 0) {
-                    $projects->setMaxResults( $limit )->setFirstResult( ( $page - 1 ) * $limit );
-                } else {
-                    $page=1;
-                }
+        // vérification en cas de changement d'élements par page et que l'on dépasse le nbre d"élément dans la DB
+        // on revient sur la dernière page
 
-                if ( ($page * $limit) > $counter ) {
-                    $page = $last;
-                }
+        if (($page * $limit) > $counter) {
+            $page = $last;
+        }
+
+
+        // Fonctionnalité Pagination
+        // cas où $limit n'est ni nul ni égal à 0, on effectue le calcul
+
+
+                    if ($limit != NULL && $limit != 0) {
+                        $projects->setMaxResults($limit)->setFirstResult(($page - 1) * $limit);
+                    } else {
+                        $page = 1;
+                    }
+
+
+
+
+
+
 
             // on récupère les resultats du Query
             $Projects = $projects->getQuery()->getResult();
@@ -152,13 +160,12 @@ class ProjectsController extends Controller
 
 
 
+
             // si il n'ya aucun resultat du query :
             if (!$Projects) {
-                return $this->render('STAGEIndexBundle:Projects:delete.html.twig',
-                array(  'info'=> "No data into DB",
-                'titre' => "Projects List",
-            ));
-        }
+
+                echo "Error";
+            }
 
 
             // Au sinon, on continue et on affiche la vue associée en faisant passer en paramètres les informations récupérées de la DB

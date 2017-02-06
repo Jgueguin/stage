@@ -26,8 +26,8 @@ Projects List
 
         <select  name="page_limit" onchange="location.href='{{ path('liste_index_homepage')}}?page={{Page}}&title={{title}}&content={{content}}&page_limit='+this.options[this.selectedIndex].value" >
             <option value="0" {% if offset == 0 %}   selected="selected"  {% endif %}>All</option>
-            <option value="5" {% if offset == 5 %}   selected="selected"  {% endif %}>5</option>
             <option value="2" {% if offset == 2 %}   selected="selected"  {% endif %}>2</option>
+            <option value="5" {% if offset == 5 %}   selected="selected"  {% endif %}>5</option>
             <option value="10" {% if offset == 10 %} selected="selected"  {% endif %}>10</option>
             <option value="15" {% if offset == 15 %} selected="selected"  {% endif %}>15</option>
             <option value="20" {% if offset == 20 %} selected="selected"  {% endif %}>20</option>
@@ -36,6 +36,7 @@ Projects List
         <input type="text" name="title"   value="{{title}}"     placeholder="Title">
         <input type="text" name="content" value="{{content}}" placeholder="Content">
         <input type="submit" name="submit" value="Search">
+
 
         <input type="text"   value="{{count}} elements in DB"  readonly >
 
@@ -64,6 +65,7 @@ function last(){
 }
 
 </script>
+
 
 
 {% for list in Projects %}
@@ -99,5 +101,6 @@ function last(){
 <br>
 
 {% endfor %}
+
 
 {% endblock %}
