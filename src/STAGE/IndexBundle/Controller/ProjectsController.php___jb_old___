@@ -21,10 +21,16 @@ class ProjectsController extends Controller
     // Affichage du contenu de la DB
     public function listeAction(request $request)
     {
+
+        //Initialisation Session
         //$session <===> $_SESSION[]
         $session = $request->getSession();
 
 
+
+// On recupère en get le parametre page-limit
+// si on ne récupére rien, on récupére ce qui a été enregistré dans la variable session,
+// au sinon si on a une info valide, on la rentre dans la variable session
 
         //$limit <==> $_GET["page_limit"]
         $limit = $request->query->get( "page_limit" );
@@ -67,16 +73,6 @@ class ProjectsController extends Controller
 
         $session->set("content",$content);
 
-
-
-
-
-
-
-
-
-
-        
 
         if( !$page) {
             $page = 1;
@@ -134,19 +130,20 @@ class ProjectsController extends Controller
                 echo "<br>";
                 echo "title: ".$title;
 
-                // vérification en cas de changement d'élements par page et que l'on dépasse le nbre d"élément dans la DB
-                // on revient sur la dernière page
+
 
                 // Fonctionnalité Pagination
                 // cas où $limit n'est ni nul ni égal à 0, on effectue le calcul
-
-                // il faut aussi vérifier si on a un element en base
 
                 if ($limit != NULL && $limit != 0) {
                     $projects->setMaxResults( $limit )->setFirstResult( ( $page - 1 ) * $limit );
                 } else {
                     $page=1;
                 }
+
+
+                // vérification en cas de changement d'élements par page et que l'on dépasse le nbre d"élément dans la DB
+                // on revient sur la dernière page
 
                 if ( ($page * $limit) > $counter ) {
                     $page = $last;
@@ -158,8 +155,6 @@ class ProjectsController extends Controller
 
 
 
-
-
             // si il n'ya aucun resultat du query :
             if (!$Projects) {
                 return $this->render('STAGEIndexBundle:Projects:delete.html.twig',
@@ -167,15 +162,6 @@ class ProjectsController extends Controller
                 'titre' => "Projects List",
             ));
         }
-
-
-        // récuperation des parametres dans l'url
-        $param=$_SERVER['QUERY_STRING'];
-
-        $session->getFlashBag()->add('param', $param);
-
-        foreach ($session->getFlashBag()->get('param', array()) as $message) {
-            echo '<div class="flash-notice"> List: '.$message.'</div>';}
 
 
             // Au sinon, on continue et on affiche la vue associée en faisant passer en paramètres les informations récupérées de la DB
@@ -191,7 +177,6 @@ class ProjectsController extends Controller
         )
     );
 }
-
 
 
 
