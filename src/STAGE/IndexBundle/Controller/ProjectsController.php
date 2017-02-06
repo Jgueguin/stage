@@ -124,15 +124,7 @@ class ProjectsController extends Controller
 
                 // calcul de la dernière page
                 $last = ($limit != 0)?ceil($counter/$limit):1;
-                echo "last page: ".$last;
-                echo "<br>";
-                echo "counter: ".$counter;
-                echo "<br>";
-                echo "limite: ".$limit;
-                echo "<br>";
-                echo "page actuelle: ".$page;
-                echo "<br>";
-                echo "title: ".$title;
+
 
                 // vérification en cas de changement d'élements par page et que l'on dépasse le nbre d"élément dans la DB
                 // on revient sur la dernière page
@@ -167,15 +159,6 @@ class ProjectsController extends Controller
                 'titre' => "Projects List",
             ));
         }
-
-
-        // récuperation des parametres dans l'url
-        $param=$_SERVER['QUERY_STRING'];
-
-        $session->getFlashBag()->add('param', $param);
-
-        foreach ($session->getFlashBag()->get('param', array()) as $message) {
-            echo '<div class="flash-notice"> List: '.$message.'</div>';}
 
 
             // Au sinon, on continue et on affiche la vue associée en faisant passer en paramètres les informations récupérées de la DB
