@@ -1,0 +1,25 @@
+{# ////////////////////////////  #}
+{# // VUE Liste des éléments //  #}
+{# ////////////////////////////  #}
+
+{% extends "STAGEIndexBundle::layoutProject.html.twig" %} {# heritage du layout du Bundle StageIndex    #}
+
+{% block title %}
+    Projects List
+{% endblock %}
+
+{% block index_body %}
+	<h1><u>Projects List</u></h1>
+	
+	{{ include("STAGEIndexBundle:Projects:search.html.twig") }}
+	
+	{{ include("STAGEIndexBundle:Projects:liste.html.twig") }}
+    
+            
+    {% if Projects|length == 0 %}
+        <h1> No results  </h1>
+    {% endif %}
+	
+      
+   
+{% endblock %}

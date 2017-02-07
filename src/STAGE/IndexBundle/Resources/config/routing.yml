@@ -2,6 +2,12 @@ stage_index_homepage:
     path:     /
     defaults: { _controller: STAGEIndexBundle:Pagegarde:index }
 
+
+index_index_homepage:
+    path:     /index/
+    defaults: { _controller: STAGEIndexBundle:Projects:index }
+
+
 liste_index_homepage:
     path:     /liste/
     defaults: { _controller: STAGEIndexBundle:Projects:liste }
