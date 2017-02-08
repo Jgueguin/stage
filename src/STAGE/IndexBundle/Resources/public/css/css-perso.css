@@ -1,0 +1,124 @@
+/* Custom Css associated to the project  */
+
+a:hover {
+    cursor: pointer;
+}
+
+.jumbotron {
+    background-color: #FF866A; /* Orange */
+    color: #ffffff;
+    box-shadow: 10px 10px 5px #888888;
+
+}
+
+.row {
+    height:500px;
+}
+
+.navbar.navbar-default, img {
+    box-shadow: 10px 10px 5px #888888;
+    border-radius: 15px;
+    background-color: lightgrey;
+}
+
+.nav.nav-pills.nav-stacked, img {
+
+    box-shadow: 10px 10px 5px #888888;
+    border-radius: 15px;
+    background-color: lightgrey;
+}
+
+.nav.nav-pills.nav-stacked, a {
+    color: black;
+}
+
+h1 {
+    text-shadow: 10px 10px 5px #888888;
+}
+
+textarea{
+    resize:none;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+
+/* ****** Zone Pagination et Research ******** */
+
+input {
+    text-align: center;
+}
+
+input.descr{
+    width:310px;
+}
+
+input.count{
+    width:130px;
+}
+
+
+input.but {
+    width:30px;
+    text-align: center;
+}
+
+
+
+/* ########## Zone LISTING */
+article {
+    padding: 10px;
+    border-width: 1px;
+    border-radius: 15px;
+    background-color: lightgrey;
+    box-shadow: 10px 10px 5px #888888;
+    overflow: hidden;
+}
+
+article a {
+    position:relative;
+    margin-bottom: 5px;
+    width:80px;
+    height:40px;
+    display:block;
+    text-align:center;
+    line-height:40px;
+    box-shadow: 10px 10px 5px #888888;
+    background-color:#d6be97;
+}
+
+div.content{
+    float:left;
+    display:inline-block;
+    width: 700px;
+    padding: 10px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+div.buttons  {
+    float:right;
+    display:inline-block;
+
+}
+
+article img {
+    float:left;
+    margin:0 20px 0 0;
+}
+
+/* positionnement des éléments de pagination  */
+div.pagin {
+    display: inline-block;
+}
+
+div.elements {
+    display: inline-block;
+}
+
+/* selection nbre elements pagination  */
+.selec {
+    background-color: lightgreen;
+    text-shadow: 1px 1px #ff00ff;
+
+
+}

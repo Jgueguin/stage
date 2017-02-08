@@ -16,16 +16,16 @@
 
     {% block stylesheet %}
 
-    {# chargement normalize.css }
-        <link rel="stylesheet" href="{{asset("bundles/framework/css/normalize.css")}}">
+    {# chargement normalize.css #}
+        <link rel="stylesheet" href="{{asset("bundles/stageindex/css/normalize.css")}}">
         {# <link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css"> #}
 
     {# Chargement CSS Bootstrap #}
-        {# <link rel="stylesheet" href="{{asset("bundles/framework/css/bootstrap3-2-0.min.css")}}"> #}
+        {# <link rel="stylesheet" href="{{asset("bundles/stageindex/css/bootstrap3-2-0.min.css")}}"> #}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
     {# Chargement CSS personnalisé #}
-        <link rel="stylesheet" href="{{asset("bundles/framework/css/css-perso.css")}}">
+        <link rel="stylesheet" href="{{asset("bundles/stageindex/css/css-perso.css")}}">
 
     {% endblock %}
 
@@ -33,7 +33,7 @@
     {% block javascripts %}
 
     {#  Insertion Jquery #}
-        <script src="{{asset("bundles/framework/js/jquery-3.1.1.js")}}"></script>
+        <script src="{{asset("bundles/stageindex/js/jquery-3.1.1.js")}}"></script>
 
     {#  Insertion script de Bootsrtrap  #}
         <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
@@ -45,7 +45,7 @@
 
 <style>
 body {
-    background-image: url("{{asset("bundles/framework/images/ipsum-bkg.jpg")}}");
+    background-image: url("{{asset("bundles/stageindex/images/ipsum-bkg.jpg")}}");
 }
 </style>
 
