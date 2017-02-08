@@ -2,26 +2,11 @@
 {# // VUE Liste des éléments //  #}
 {# ////////////////////////////  #}
 
-<div id="result">
-    <h4> Page en cours {{ Page }}</h4>
-    <h4> Offset   {{ offset }}</h4>
-    <h4> Nbre d'éléments retournés {{ count }}</h4>
-    <h4> Derniere page {{ last }}</h4>
-    
-    
-    <script>
-        
-        alert ($("input[name='count']").val( {{count}} ));
-        
-        console.log($("input[name='count']").val());
-        
-        console.log( {{ count }} );
-    
-    </script>
-    
-    
-    
-    
+
+<div id="list">
+  
+      
+	
 	{% for list in Projects %}
         
         
@@ -57,8 +42,13 @@
         <br>
 	
 	{% endfor %}
-
+    
+   
 </div>
+
+
+
+
 
 
 

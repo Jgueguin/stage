@@ -19,7 +19,7 @@ use STAGE\IndexBundle\Form\ProjectEntityType;
 class ProjectsController extends Controller
 {
 
-	// Affichage du contenu de la liste des éléments de la DB
+	// Affichage de la page index : Vues Index qui contient vues search et Liste
 	public function indexAction(request $request)
 	{
 		//$session <===> $_SESSION[]
@@ -162,7 +162,7 @@ class ProjectsController extends Controller
 
 
 
-	// Affichage du contenu de la liste des éléments de la DB
+	// Méthode qui sert pour calculer les requêtes et afficher que la liste des résultats
 	public function listeAction(request $request)
 	{
 		//$session <===> $_SESSION[]
@@ -307,6 +307,145 @@ class ProjectsController extends Controller
 		);
 	}
 
+	// Méthode qui sert pour la partie "Moteur de Recherche"
+	public function searchAction(request $request)
+	{
+		//$session <===> $_SESSION[]
+		$session = $request->getSession();
+
+		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+
+		//$limit <==> $_GET["page_limit"]
+		$limit = $request->query->get( 'page_limit' );
+
+
+		// si la valeur n'existe pas, on recupère la valeur qui a été enregistrée le coup d'avant dans la variable Session
+		if(!$limit){
+			//$page <===> $_SESSION["page"]
+			$limit = $session->get("page_limit");
+
+			if ($limit != 0) { $limit=0;}
+		}
+
+
+		// au sinon, elle existe et on la rentre dans la variable Session
+		$session->set("page_limit",$limit);
+
+
+		//$page <==> $_GET["page"]
+		$page = $request->query->get( "page" );
+		if(!$page){
+			//$page <===> $_SESSION["page"]
+			$page = $session->get("page");
+		}
+		$session->set("page",$page);
+
+
+		//$title <==> $_GET["title"]
+		$title = $request->query->get( "title" );
+		if(!$title)   {
+			//$title <===> $_SESSION["title"]
+			//$title = $session->get("title");
+			$title='';
+		}
+		$session->set("title",$title);
+
+
+		//$content <==> $_GET["content"]
+		$content = $request->query->get( "content" );
+		if(!$content){
+			//$content <===> $_SESSION["content"]
+			// $content = $session->get("content");
+
+			$content='';
+		}
+		$session->set("content",$content);
+
+
+		if( !$page) {
+			$page = 1;
+		}
+
+		if($page <= 0){
+			$page = 1;
+		}
+
+		// On appelle le repository dans lequel se trouve toutes les informations de notre DB
+
+		$repository = $this
+			->getDoctrine()
+			->getManager()
+			->getRepository('STAGEIndexBundle:ProjectEntity')
+		;
+		// préparation requête
+		$em   = $this->getDoctrine()->getManager();
+		$qb   = $em->getRepository( 'STAGEIndexBundle:ProjectEntity' )->createQueryBuilder( 'm' );
+		$qb2  = $em->getRepository( 'STAGEIndexBundle:ProjectEntity' )->findAll();
+		$projects = $qb ->where( '1 = 1' )
+		;
+
+
+		// Premier formulaire de recherche
+
+		// on transmet les paramètres de recherche pour trier les infos dans la DB
+		$projects = $projects
+			->andWhere( 'm.projDescr LIKE :param1' )
+			->andWhere('m.projTitle LIKE :param2')
+			->setParameters(
+				array(
+					'param1'=>'%' . $content . '%',
+					'param2'=>'%' . $title . '%'
+				));
+
+
+		$result = $projects->getQuery()->getResult();
+
+		// ->>>>  Combien avons-nous d'élements qui répondent à notre recherche ?????
+		$counter = count($result);
+
+
+		// calcul de la dernière page
+		$last = ($limit != 0) ? ceil($counter / $limit) : 1;
+
+		if ($last==0 && $limit!=0) {
+			$last=1;
+		}
+
+
+		// vérification en cas de changement d'élements par page et que l'on dépasse le nbre d"élément dans la DB
+		// on revient sur la dernière page
+
+		if (($page * $limit) > $counter) {
+			$page = $last;
+		}
+
+		// Fonctionnalité Pagination
+		// cas où $limit n'est ni nul ni égal à 0, on effectue le calcul
+
+
+		if ($limit != NULL && $limit != 0) {
+			$projects->setMaxResults($limit)->setFirstResult(($page - 1) * $limit);
+		} else {
+			$page = 1;
+		}
+
+		// on récupère les resultats du Query
+		$Projects = $projects->getQuery()->getResult();
+
+
+		// Au sinon, on continue et on affiche la vue associée en faisant passer en paramètres les informations récupérées de la DB
+		return $this->render('STAGEIndexBundle:Projects:search.html.twig',
+			array( 'Projects' => $Projects,
+			       'Page' => $page,
+			       'offset'=> $limit,
+			       'count' => $counter,
+			       'last' => $last,
+			       'title' => $title,
+			       'content' => $content,
+
+			)
+		);
+	}
 
 
 	// Appel d'un formulaire et insertion en base de données
@@ -381,9 +520,6 @@ class ProjectsController extends Controller
 
 			return $this->redirect($this->generateUrl('index_index_homepage'));
 
-			//return $this->render('STAGEIndexBundle:Projects:liste.html.twig',
-
-			//array('par' => $_SESSION['param']  ));
 
 		}
 
@@ -418,7 +554,7 @@ class ProjectsController extends Controller
 		$em->flush();
 
 		// on se redirige vers la liste des projets
-		return $this->redirect($this->generateUrl('liste_index_homepage'));
+		return $this->redirect($this->generateUrl('index_index_homepage'));
 	}
 
 

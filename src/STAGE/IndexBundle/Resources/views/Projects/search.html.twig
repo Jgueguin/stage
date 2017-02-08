@@ -1,6 +1,6 @@
 
-
-<div>
+<div id="research">
+	
 	<form name="form1" action="{{ path('index_index_homepage') }}" method="get" >
 		<input type="submit" class="but" onclick="first()"    value="<<" readonly=""   {% if Page == 1 %} disabled="disabled"{% endif %}>
 		<input type="submit" class="but" onclick="backward()" value="<"  readonly="" {% if Page == 1 %} disabled="disabled"{% endif %}>
@@ -11,7 +11,8 @@
 		<input type="submit" class="but" onclick="last()"    value=">>" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
 		
 		
-		<select  name="page_limit" onchange="location.href='{{ path('index_index_homepage')}}?page={{Page}}&content={{content}}&page_limit='+this.options[this.selectedIndex].value" >
+		
+		<select  name="page_limit" >
 			<option value="0" {% if offset == 0 %}   selected="selected"  {% endif %}>All</option>
 			<option value="2" {% if offset == 2 %}   selected="selected"  {% endif %}>2</option>
 			<option value="5" {% if offset == 5 %}   selected="selected"  {% endif %}>5</option>
@@ -19,19 +20,6 @@
 			<option value="15" {% if offset == 15 %} selected="selected"  {% endif %}>15</option>
 			<option value="20" {% if offset == 20 %} selected="selected"  {% endif %}>20</option>
 		</select>
-		
-		
-		{# <select  name="page_limit" onchange="location.href='{{ path('index_index_homepage',{"page":Page,"content":content}) }} &page_limit='+this.options[this.selectedIndex].value" >
-			<option value="0" {% if offset == 0 %}   selected="selected"  {% endif %}>All</option>
-			<option value="2" {% if offset == 2 %}   selected="selected"  {% endif %}>2</option>
-			<option value="5" {% if offset == 5 %}   selected="selected"  {% endif %}>5</option>
-			<option value="10" {% if offset == 10 %} selected="selected"  {% endif %}>10</option>
-			<option value="15" {% if offset == 15 %} selected="selected"  {% endif %}>15</option>
-			<option value="20" {% if offset == 20 %} selected="selected"  {% endif %}>20</option>
-		</select>#}
-		
-		
-		
 		
 		
 		
@@ -47,8 +35,7 @@
 		
 		<input type="submit" name="submit" value="Search">
 		
-		
-		<input type='text'  class='count' value='{{count}} elements in DB'  readonly >
+		<input type='text'  class='count' name="count" value='{{count}} element(s) found'  readonly >
 	
 	</form>
 </div>
@@ -76,27 +63,68 @@
 
 
     $(document).ready(function() {
+		
+		
+		{# // fonction qui scrute le choix de page_limit  et qui récupére le champ content #}
+
+        $("select[name='page_limit']").change(function () {
+
+            // récupération des différentes valeurs qui nous interressent provenant des balises
+            var offset1  = $("select[name='page_limit']").val();
+            var content1 = $("input[name='content']").val();
+
+            var url= '{{ path('index_index_homepage')}}?page_limit='+offset1+'&content='+content1;
+
+            location.href=url;
+
+        });
+		
+		
+		{#  fonction qui regarde si une touche a été appuyée pour ensuite effectuer des fonctions ajax #}
 
         $("input[name='content']").keyup(function () {
-            var content = $("input[name='content']").val();
-            console.log(content);
+
+
+
+            // récupération des différentes valeurs qui nous interressent provenant des balises
+            var offset2  = $("select[name='page_limit']").val();
+            var content2 = $("input[name='content']").val();
+            var count2   = $("input[name='count']").val();
+            var page     = $("input[name='page']").val();
+
+
+
+            // définition de l'url avec les paramètres qui nous interressent
+            var url= '{{ path('index_index_homepage')}}?page_limit='+offset2+'&content='+content2;
+
+            //Avant toute action, on va vers l'url qui nous interresse avec les paramétres récupérés lors de l'appui d'une touche dans le champ content
+            location.href=url;
+
+
+
+            // puis on va afficher la liste des éléments en ajax
 
 
             $.ajax({
                 url: '{{ path('liste_index_homepage') }}',
                 type: 'GET',
-                data: 'content=' + $("input[name='content']").val(),
-	            
-	            
-                success: function (success) {
-                    console.log("OK DATA");
-                
-                $("#result").html(success);
+                data: 'content=' + content&'page_limit='+ offset2,
 
-                                      
-                
-                    }
+                success: function (success) {
+
+                    console.log("AJAXList Content: "+content2);
+                    console.log("AJAXList Offset: "+offset2);
+                    console.log("AJAXList Elements: "+count2);
+                    console.log("---------------------------");
+
+                    $("#list").html(success);
+
+
+
+                }
             });
+
+
 
 
         });

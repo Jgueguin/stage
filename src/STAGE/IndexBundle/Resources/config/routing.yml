@@ -12,6 +12,13 @@ liste_index_homepage:
     path:     /liste/
     defaults: { _controller: STAGEIndexBundle:Projects:liste }
 
+search_index_homepage:
+    path:     /search/
+    defaults: { _controller: STAGEIndexBundle:Projects:search }
+
+
+
+
 new_index_homepage:
     path:     /new/
     defaults: { _controller: STAGEIndexBundle:Projects:new }
