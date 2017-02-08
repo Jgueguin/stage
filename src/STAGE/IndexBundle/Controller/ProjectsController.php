@@ -98,17 +98,8 @@ class ProjectsController extends Controller
 		;
 
 
-		// Premier formulaire de recherche
-
-		// on transmet les paramètres de recherche pour trier les infos dans la DB
-		$projects = $projects
-			->andWhere( 'm.projDescr LIKE :param1' )
-			->andWhere('m.projTitle LIKE :param2')
-			->setParameters(
-				array(
-					'param1'=>'%' . $content . '%',
-					'param2'=>'%' . $title . '%'
-				));
+		// fichier contenant requête à la DB
+		include ("requestDB.php" );
 
 
 		$result = $projects->getQuery()->getResult();
@@ -233,7 +224,7 @@ class ProjectsController extends Controller
 			->getManager()
 			->getRepository('STAGEIndexBundle:ProjectEntity')
 		;
-		// préparation requête
+		// préparation acces à la DB
 		$em   = $this->getDoctrine()->getManager();
 		$qb   = $em->getRepository( 'STAGEIndexBundle:ProjectEntity' )->createQueryBuilder( 'm' );
 		$qb2  = $em->getRepository( 'STAGEIndexBundle:ProjectEntity' )->findAll();
@@ -241,23 +232,13 @@ class ProjectsController extends Controller
 		;
 
 
-
-		// Premier formulaire de recherche
-
-		// on transmet les paramètres de recherche pour trier les infos dans la DB
-		$projects = $projects
-			->andWhere( 'm.projDescr LIKE :param1' )
-			->andWhere('m.projTitle LIKE :param2')
-			->setParameters(
-				array(
-					'param1'=>'%' . $content . '%',
-					'param2'=>'%' . $title . '%'
-				));
-
+		// fichier contenant requête à la DB
+		include ("requestDB.php" );
 
 
 
 		$result = $projects->getQuery()->getResult();
+
 
 		// ->>>>  Combien avons-nous d'élements qui répondent à notre recherche ?????
 		$counter = count($result);
@@ -377,25 +358,15 @@ class ProjectsController extends Controller
 			->getManager()
 			->getRepository('STAGEIndexBundle:ProjectEntity')
 		;
-		// préparation requête
+		// préparation acces DB
 		$em   = $this->getDoctrine()->getManager();
 		$qb   = $em->getRepository( 'STAGEIndexBundle:ProjectEntity' )->createQueryBuilder( 'm' );
 		$qb2  = $em->getRepository( 'STAGEIndexBundle:ProjectEntity' )->findAll();
 		$projects = $qb ->where( '1 = 1' )
 		;
 
-
-		// Premier formulaire de recherche
-
-		// on transmet les paramètres de recherche pour trier les infos dans la DB
-		$projects = $projects
-			->andWhere( 'm.projDescr LIKE :param1' )
-			->andWhere('m.projTitle LIKE :param2')
-			->setParameters(
-				array(
-					'param1'=>'%' . $content . '%',
-					'param2'=>'%' . $title . '%'
-				));
+		// fichier contenant requête à la DB
+		include ("requestDB.php" );
 
 
 		$result = $projects->getQuery()->getResult();
@@ -410,7 +381,6 @@ class ProjectsController extends Controller
 		if ($last==0 && $limit!=0) {
 			$last=1;
 		}
-
 
 		// vérification en cas de changement d'élements par page et que l'on dépasse le nbre d"élément dans la DB
 		// on revient sur la dernière page
@@ -431,7 +401,6 @@ class ProjectsController extends Controller
 
 		// on récupère les resultats du Query
 		$Projects = $projects->getQuery()->getResult();
-
 
 		// Au sinon, on continue et on affiche la vue associée en faisant passer en paramètres les informations récupérées de la DB
 		return $this->render('STAGEIndexBundle:Projects:search.html.twig',
