@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a3b48abe-894b-4436-a186-fdcf1bb50df4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/STAGE/IndexBundle/Controller/ProjectsController.php" afterPath="$PROJECT_DIR$/src/STAGE/IndexBundle/Controller/ProjectsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/public/css/css-perso.css" afterPath="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/public/css/css-perso.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/liste.html.twig" afterPath="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/liste.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/search.html.twig" afterPath="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/search.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +22,8 @@
       <file leaf-file-name="ProjectsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/STAGE/IndexBundle/Controller/ProjectsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="636" column="10" lean-forward="false" selection-start-line="636" selection-start-column="10" selection-end-line="636" selection-end-column="10" />
+            <state relative-caret-position="336">
+              <caret line="596" column="50" lean-forward="false" selection-start-line="596" selection-start-column="50" selection-end-line="596" selection-end-column="50" />
               <folding>
                 <element signature="e#532#3850#0#PHP" expanded="true" />
                 <element signature="e#2064#2096#1#PHP" expanded="true" />
@@ -53,8 +53,9 @@
                 <element signature="e#12932#14136#0#PHP" expanded="true" />
                 <element signature="e#13408#13440#1#PHP" expanded="true" />
                 <element signature="e#13911#13933#0#PHP" expanded="true" />
-                <element signature="e#15047#15069#0#PHP" expanded="true" />
-                <element signature="e#15374#15406#1#PHP" expanded="true" />
+                <element signature="e#14180#15159#0#PHP" expanded="true" />
+                <element signature="e#15064#15086#0#PHP" expanded="true" />
+                <element signature="e#15391#15423#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,15 +64,23 @@
       <file leaf-file-name="liste.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/liste.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+            <state relative-caret-position="456">
+              <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
               <folding>
-                <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#p#1;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="css-perso.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/bundles/stageindex/css/css-perso.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="75" column="28" lean-forward="true" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,7 +97,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="search.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/search.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
@@ -162,9 +171,10 @@
         <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/modify.html.twig" />
         <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Controller/requestDB.php" />
         <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/liste.html.twig" />
-        <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Controller/ProjectsController.php" />
         <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/search.html.twig" />
+        <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Controller/ProjectsController.php" />
+        <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/liste.html.twig" />
+        <option value="$PROJECT_DIR$/web/bundles/stageindex/css/css-perso.css" />
       </list>
     </option>
   </component>
@@ -176,8 +186,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="37" />
+    <option name="x" value="9" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -208,6 +217,86 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stageindex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Symfony" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stageindex" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -482,15 +571,15 @@
       <workItem from="1486485834025" duration="106000" />
       <workItem from="1486541706217" duration="22672000" />
       <workItem from="1486571316651" duration="1129000" />
-      <workItem from="1486625250338" duration="13313000" />
+      <workItem from="1486625250338" duration="15613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82156000" />
+    <option name="totallyTimeSpent" value="84456000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="37" width="1382" height="744" extended-state="0" />
+    <frame x="9" y="0" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15733737" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -542,20 +631,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/liste.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/STAGE/IndexBundle/Controller/ProjectsController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1989">
@@ -589,8 +664,9 @@
             <element signature="e#12932#14136#0#PHP" expanded="true" />
             <element signature="e#13408#13440#1#PHP" expanded="true" />
             <element signature="e#13911#13933#0#PHP" expanded="true" />
-            <element signature="e#15047#15069#0#PHP" expanded="true" />
-            <element signature="e#15374#15406#1#PHP" expanded="true" />
+            <element signature="e#14180#15159#0#PHP" expanded="true" />
+            <element signature="e#15064#15086#0#PHP" expanded="true" />
+            <element signature="e#15391#15423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -607,11 +683,9 @@
         <state relative-caret-position="901">
           <caret line="53" column="12" lean-forward="false" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
           <folding>
-            <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#p#1;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -650,8 +724,9 @@
             <element signature="e#12932#14136#0#PHP" expanded="true" />
             <element signature="e#13408#13440#1#PHP" expanded="true" />
             <element signature="e#13911#13933#0#PHP" expanded="true" />
-            <element signature="e#15047#15069#0#PHP" expanded="true" />
-            <element signature="e#15374#15406#1#PHP" expanded="true" />
+            <element signature="e#14180#15159#0#PHP" expanded="true" />
+            <element signature="e#15064#15086#0#PHP" expanded="true" />
+            <element signature="e#15391#15423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -668,11 +743,9 @@
         <state relative-caret-position="1156">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
-            <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#p#1;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -711,8 +784,9 @@
             <element signature="e#12932#14136#0#PHP" expanded="true" />
             <element signature="e#13408#13440#1#PHP" expanded="true" />
             <element signature="e#13911#13933#0#PHP" expanded="true" />
-            <element signature="e#15047#15069#0#PHP" expanded="true" />
-            <element signature="e#15374#15406#1#PHP" expanded="true" />
+            <element signature="e#14180#15159#0#PHP" expanded="true" />
+            <element signature="e#15064#15086#0#PHP" expanded="true" />
+            <element signature="e#15391#15423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -729,11 +803,9 @@
         <state relative-caret-position="1156">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
-            <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#p#1;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -772,8 +844,9 @@
             <element signature="e#12932#14136#0#PHP" expanded="true" />
             <element signature="e#13408#13440#1#PHP" expanded="true" />
             <element signature="e#13911#13933#0#PHP" expanded="true" />
-            <element signature="e#15047#15069#0#PHP" expanded="true" />
-            <element signature="e#15374#15406#1#PHP" expanded="true" />
+            <element signature="e#14180#15159#0#PHP" expanded="true" />
+            <element signature="e#15064#15086#0#PHP" expanded="true" />
+            <element signature="e#15391#15423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -790,11 +863,9 @@
         <state relative-caret-position="1156">
           <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
-            <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#p#1;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -833,8 +904,9 @@
             <element signature="e#12932#14136#0#PHP" expanded="true" />
             <element signature="e#13408#13440#1#PHP" expanded="true" />
             <element signature="e#13911#13933#0#PHP" expanded="true" />
-            <element signature="e#15047#15069#0#PHP" expanded="true" />
-            <element signature="e#15374#15406#1#PHP" expanded="true" />
+            <element signature="e#14180#15159#0#PHP" expanded="true" />
+            <element signature="e#15064#15086#0#PHP" expanded="true" />
+            <element signature="e#15391#15423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -851,11 +923,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#p#1;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -894,8 +964,9 @@
             <element signature="e#12932#14136#0#PHP" expanded="true" />
             <element signature="e#13408#13440#1#PHP" expanded="true" />
             <element signature="e#13911#13933#0#PHP" expanded="true" />
-            <element signature="e#15047#15069#0#PHP" expanded="true" />
-            <element signature="e#15374#15406#1#PHP" expanded="true" />
+            <element signature="e#14180#15159#0#PHP" expanded="true" />
+            <element signature="e#15064#15086#0#PHP" expanded="true" />
+            <element signature="e#15391#15423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -912,11 +983,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#p#1;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -955,8 +1024,9 @@
             <element signature="e#12932#14136#0#PHP" expanded="true" />
             <element signature="e#13408#13440#1#PHP" expanded="true" />
             <element signature="e#13911#13933#0#PHP" expanded="true" />
-            <element signature="e#15047#15069#0#PHP" expanded="true" />
-            <element signature="e#15374#15406#1#PHP" expanded="true" />
+            <element signature="e#14180#15159#0#PHP" expanded="true" />
+            <element signature="e#15064#15086#0#PHP" expanded="true" />
+            <element signature="e#15391#15423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -973,11 +1043,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#p#1;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1016,8 +1084,9 @@
             <element signature="e#12932#14136#0#PHP" expanded="true" />
             <element signature="e#13408#13440#1#PHP" expanded="true" />
             <element signature="e#13911#13933#0#PHP" expanded="true" />
-            <element signature="e#15047#15069#0#PHP" expanded="true" />
-            <element signature="e#15374#15406#1#PHP" expanded="true" />
+            <element signature="e#14180#15159#0#PHP" expanded="true" />
+            <element signature="e#15064#15086#0#PHP" expanded="true" />
+            <element signature="e#15391#15423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1141,10 +1210,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/search.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="93" lean-forward="false" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
+          <folding>
+            <element signature="n#script#0;n#!!top" expanded="true" />
+            <element signature="e#2502#5124#0#HTML" expanded="true" />
+            <element signature="e#2679#3247#0#HTML" expanded="true" />
+            <element signature="e#3189#3230#0#HTML" expanded="true" />
+            <element signature="e#3410#5115#0#HTML" expanded="true" />
+            <element signature="e#4268#4318#0#HTML" expanded="true" />
+            <element signature="e#4413#5087#0#HTML" expanded="true" />
+            <element signature="e#4615#5021#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/STAGE/IndexBundle/Controller/ProjectsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="636" column="10" lean-forward="false" selection-start-line="636" selection-start-column="10" selection-end-line="636" selection-end-column="10" />
+        <state relative-caret-position="336">
+          <caret line="596" column="50" lean-forward="false" selection-start-line="596" selection-start-column="50" selection-end-line="596" selection-end-column="50" />
           <folding>
             <element signature="e#532#3850#0#PHP" expanded="true" />
             <element signature="e#2064#2096#1#PHP" expanded="true" />
@@ -1174,40 +1260,30 @@
             <element signature="e#12932#14136#0#PHP" expanded="true" />
             <element signature="e#13408#13440#1#PHP" expanded="true" />
             <element signature="e#13911#13933#0#PHP" expanded="true" />
-            <element signature="e#15047#15069#0#PHP" expanded="true" />
-            <element signature="e#15374#15406#1#PHP" expanded="true" />
+            <element signature="e#14180#15159#0#PHP" expanded="true" />
+            <element signature="e#15064#15086#0#PHP" expanded="true" />
+            <element signature="e#15391#15423#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/liste.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        <state relative-caret-position="456">
+          <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
           <folding>
-            <element signature="n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#h2#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#p#2;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#p#1;n#div#0;n#article#0;n#section#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/search.html.twig">
+    <entry file="file://$PROJECT_DIR$/web/bundles/stageindex/css/css-perso.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="93" lean-forward="false" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
-          <folding>
-            <element signature="n#script#0;n#!!top" expanded="true" />
-            <element signature="e#2502#5124#0#HTML" expanded="true" />
-            <element signature="e#2679#3247#0#HTML" expanded="true" />
-            <element signature="e#3189#3230#0#HTML" expanded="true" />
-            <element signature="e#3410#5115#0#HTML" expanded="true" />
-            <element signature="e#4268#4318#0#HTML" expanded="true" />
-            <element signature="e#4413#5087#0#HTML" expanded="true" />
-            <element signature="e#4615#5021#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="234">
+          <caret line="75" column="28" lean-forward="true" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

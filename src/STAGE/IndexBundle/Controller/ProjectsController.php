@@ -594,7 +594,7 @@ class ProjectsController extends Controller
 
 
 	// Effacement d'une ligne dans la DB
-	public function deleteAction($id)
+	public function deleteAction(Request $request,$id)
 	{
 		//$session <===> $_SESSION[]
 		$session = $request->getSession();

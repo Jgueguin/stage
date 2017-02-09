@@ -9,12 +9,12 @@
 	{% for list in Projects %}
         
         <section class="listing">
-            <article >
+            <article>
                 
                 <img src="{{asset("bundles/stageindex/images/folder.jpg")}}"  style="height:50px" class=" img_descr img-responsive">
                 
                 <div class="content">
-                    <p><u>Id</u>:     <u>{{ list.id }} </u> </p>
+                    
                     <h2><u>Title : </u>
 	
 	                    {# // Mise en evidence du ou des mots recherchés dans la description #}
@@ -24,9 +24,14 @@
 						{% set replace_with     = '<strong style="background-color:green; ">'~content~'</strong>' %}
 						
 						{{ Title|replace({ (search_value): replace_with })|raw }}
-                                                          
+                                                         
                     </h2>
-                    
+                    <div class="buttons">
+        
+                        <a  href="{{ path('view_index_homepage',{'id':list.id})   }}"> Detail</a>
+                        <a  href="{{ path('modify_index_homepage',{'id':list.id}) }}"> Modify </a>
+                        <a  href="{{ path('delete_index_homepage',{'id':list.id}) }}"> Delete </a>
+                    </div>
                                         
                     <hr>
 					
@@ -46,17 +51,14 @@
 	
 	                    {{ Descr|replace({ (search_value): replace_with })|raw }}
                         
-                        
                     </p>
+                    <p><u>Id</u>:     <u>{{ list.id }} </u> </p>
                 
                 
                 </div>
                 
-                <div class="buttons">
-                    <a  href="{{ path('view_index_homepage',{'id':list.id})   }}"> Detail</a>
-                    <a  href="{{ path('modify_index_homepage',{'id':list.id}) }}"> Modify </a>
-                    <a  href="{{ path('delete_index_homepage',{'id':list.id}) }}"> Delete </a>
-                </div>
+                
+                
             
             </article>
         

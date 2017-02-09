@@ -72,6 +72,16 @@ article {
     background-color: lightgrey;
     box-shadow: 10px 10px 5px #888888;
     overflow: hidden;
+    transition-property: height;
+    transition-duration: 1s;
+    height:70px;
+
+}
+
+article:hover{
+    height: 450px;
+
+
 }
 
 article a {
@@ -79,7 +89,7 @@ article a {
     margin-bottom: 5px;
     width:80px;
     height:40px;
-    display:block;
+    display:inline-block;
     text-align:center;
     line-height:40px;
     box-shadow: 10px 10px 5px #888888;
@@ -87,16 +97,16 @@ article a {
 }
 
 div.content{
-    float:left;
-    display:inline-block;
-    width: 700px;
-    padding: 10px;
-    margin: 10px;
+    /* float:left;*/
+    display:block;
+    width: 600px;
+    padding: 5px;
+    margin: 0px;
     overflow: hidden;
 }
 
 div.buttons  {
-    float:right;
+   /*  float:right; */
     display:inline-block;
 
 }
