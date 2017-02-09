@@ -22,6 +22,9 @@ class ProjectsController extends Controller
 	// Affichage de la page index : Vues Index qui contient vues search et Liste
 	public function indexAction(request $request)
 	{
+
+		$nbrchar=0;
+
 		//$session <===> $_SESSION[]
 		$session = $request->getSession();
 
@@ -98,6 +101,7 @@ class ProjectsController extends Controller
 		;
 
 
+
 		// fichier contenant requête à la DB
 		include ("requestDB.php" );
 
@@ -138,6 +142,10 @@ class ProjectsController extends Controller
 		$Projects = $projects->getQuery()->getResult();
 
 
+		//nbre de characteres provenant du champ de recherche
+		$nbrchar=strlen($content);
+
+
 		// Au sinon, on continue et on affiche la vue associée en faisant passer en paramètres les informations récupérées de la DB
 		return $this->render('STAGEIndexBundle:Projects:index.html.twig',
 			array( 'Projects' => $Projects,
@@ -147,6 +155,7 @@ class ProjectsController extends Controller
 			       'last' => $last,
 			       'title' => $title,
 			       'content' => $content,
+				   'nbrchars' =>$nbrchar,
 			)
 		);
 	}
@@ -274,6 +283,10 @@ class ProjectsController extends Controller
 		$Projects = $projects->getQuery()->getResult();
 
 
+		//nbre de characteres provenant du champ de recherche
+		$nbrchar=strlen($content);
+
+
 		// Au sinon, on continue et on affiche la vue associée en faisant passer en paramètres les informations récupérées de la DB
 		return $this->render('STAGEIndexBundle:Projects:liste.html.twig',
 			array( 'Projects' => $Projects,
@@ -283,10 +296,14 @@ class ProjectsController extends Controller
 			       'last' => $last,
 			       'title' => $title,
 			       'content' => $content,
+			       'nbrchars' =>$nbrchar,
 
 			)
 		);
 	}
+
+
+
 
 	// Méthode qui sert pour la partie "Moteur de Recherche"
 	public function searchAction(request $request)
@@ -402,6 +419,10 @@ class ProjectsController extends Controller
 		// on récupère les resultats du Query
 		$Projects = $projects->getQuery()->getResult();
 
+		//nbre de characteres provenant du champ de recherche
+		$nbrchar=strlen($content);
+
+
 		// Au sinon, on continue et on affiche la vue associée en faisant passer en paramètres les informations récupérées de la DB
 		return $this->render('STAGEIndexBundle:Projects:search.html.twig',
 			array( 'Projects' => $Projects,
@@ -411,6 +432,7 @@ class ProjectsController extends Controller
 			       'last' => $last,
 			       'title' => $title,
 			       'content' => $content,
+			       'nbrchars' =>$nbrchar,
 
 			)
 		);

@@ -14,8 +14,35 @@
                 <img src="{{asset("bundles/stageindex/images/folder.jpg")}}"  style="height:50px" class=" img_descr img-responsive">
                 
                 <div class="content">
-                    <p><u>Id</u>:             {{ list.id }}</p>
-                    <h2><u>Title : </u>       {{ list.projTitle }}</h2>
+                    <p><u>Id</u>:     <u>{{ list.id }} </u> </p>
+                    <h2><u>Title : </u>
+	
+	                    <br>
+	
+	
+	                    {% set twig_content_variable   = list.projTitle %}
+	                    {% set replace_value_var       = content %}
+	                    {% set replace_with_value_var  = '<u>'~content~'</u>' %}
+	                                                        
+                 
+    
+                        titre   : {{  twig_content_variable }} <br>
+	                    content :{{  replace_value_var }}    <br>
+	                    valeur de rplct : {{  replace_with_value_var }} <br>
+		                   
+                                               
+	                    {{ twig_content_variable|replace({ (replace_value_var): replace_with_value_var      }) }}
+	
+	
+	                    	 
+                            
+                        <br>
+						
+						
+                    </h2>
+                    
+                    
+                    
                     <hr>
 					
 					{% if list.projDate is not null %}
@@ -23,7 +50,37 @@
                         <hr>
 					
 					{% endif %}
-                    <p><u>Description</u>: {{ list.projDescr|raw }}</p><br>
+                    
+                  
+                    <p><u>Description</u>: {{ list.projDescr|striptags }}</p><br>
+    
+                    
+                    <p><u>Description</u>:
+						
+														
+							
+	                   
+	                    {% set twig_content_variable   = list.projDescr %}
+	
+			                   
+	                    {% set replace_value_var       = content %}
+	                    {% set replace_with_value_var  = content %}
+    
+    
+	
+	
+	                    {{ twig_content_variable|replace({ (replace_value_var): replace_with_value_var      })|striptags|upper }}
+                        
+                        
+                        
+                        
+                        
+	
+	                    
+                    
+                    </p><br>
+                
+                
                 </div>
                 
                 <div class="buttons">
