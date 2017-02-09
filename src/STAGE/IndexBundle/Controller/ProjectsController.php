@@ -26,19 +26,17 @@ class ProjectsController extends Controller
 		//$session <===> $_SESSION[]
 		$session = $request->getSession();
 
-		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+		// on récupère en get la valeur page_limit
 
 		//$limit <==> $_GET["page_limit"]
 		$limit = $request->query->get( 'page_limit' );
-
 
 
 		// si la valeur n'existe pas, on recupère la valeur qui a été enregistrée le coup d'avant dans la variable Session
 		if(!$limit){
 			//$page <===> $_SESSION["page"]
 			$limit = $session->get("page_limit");
-
-			if ($limit != 0) { $limit=0;}
+			 if ($limit != 0) { $limit=$limit;}
 		}
 
 
@@ -55,14 +53,16 @@ class ProjectsController extends Controller
 		$session->set("page",$page);
 
 
+
+		// Partie correpondant au premier formulaire qui avait 2 champs de recherche
 		//$title <==> $_GET["title"]
-		$title = $request->query->get( "title" );
+		/* $title = $request->query->get( "title" );
 		if(!$title)   {
 			//$title <===> $_SESSION["title"]
 			//$title = $session->get("title");
 			$title='';
 		}
-		$session->set("title",$title);
+		$session->set("title",$title); */
 
 
 		//$content <==> $_GET["content"]
@@ -156,7 +156,7 @@ class ProjectsController extends Controller
 			       'offset'  => $limit,
 			       'count'   => $counter,
 			       'last'    => $last,
-			       'title'   => $title,
+			       /* 'title'   => $title, */ /* appartient à la premiere version du moteur de recherche */
 			       'content' => $content,
 
 			)
@@ -448,12 +448,11 @@ class ProjectsController extends Controller
 		//$session <===> $_SESSION[]
 		$session = $request->getSession();
 
-		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+		// on récupère en get la valeur page_limit, la dernière page en cours et la valeur recherché dans "content"
 
-		//$limit <==> $_GET["page_limit"]
-
-		$limit = $session->get("page_limit");
-		$last = $session->get("last");
+		$limit    = $session->get("page_limit");
+		$last     = $session->get("last");
+		$content  = $session->get("content");
 
 
 
@@ -475,10 +474,11 @@ class ProjectsController extends Controller
 
 			return $this->redirect($this->generateUrl('index_index_homepage',
 				array(
-					'page_limit'=>$limit,
+					'page_limit' => $limit,
+					'content'    => $content,
 
 					// une fois que l'on a rentré les infos, on va sur la dernière page
-					'page'=> $last,
+					'page'       => $last,
 				))
 
 			);
@@ -495,16 +495,17 @@ class ProjectsController extends Controller
 	public function new2Action(Request $request)
 	{
 
-
 		//$session <===> $_SESSION[]
 		$session = $request->getSession();
 
-		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+		// on récupère en get la valeur page_limit, la derniere page encours et la valeur de recherche
 
 		//$limit <==> $_GET["page_limit"]
 
-		$limit = $session->get("page_limit");
-		$last  = $session->get("last");
+		$limit   = $session->get("page_limit");
+		$last    = $session->get("last");
+		$content = $session->get("content");
+
 
 
 
@@ -529,10 +530,11 @@ class ProjectsController extends Controller
 		// on se redirige vers la liste des projets
 		return $this->redirect($this->generateUrl('index_index_homepage',
 			array(
-				'page_limit'=>$limit,
+				'page_limit' => $limit,
+				'content'    => $content,
 
-				// une fois que l'on a rentré les infos, on va sur la dernière page
-				'page'=> $last,
+				// une fois que l'on a rentré les infos, on veut aller sur la dernière page
+				'page'       => $last,
 			))
 
 		);
@@ -550,14 +552,16 @@ class ProjectsController extends Controller
 		//$session <===> $_SESSION[]
 		$session = $request->getSession();
 
-		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+		// on récupère en get la valeur page_limit, la page en cours et le contenu du champ de recherche
 
-		//$limit <==> $_GET["page_limit"]
+		$limit    = $session->get("page_limit");
+		$page     = $session->get("page");
+		$content  = $session->get("content");
 
-		$limit = $session->get("page_limit");
-		$page  = $session->get("page");
 
-
+		echo "limit".$limit;
+		echo "<br>";
+		echo "page".$page;
 
 		$em = $this->getDoctrine()->getManager();
 
@@ -574,11 +578,14 @@ class ProjectsController extends Controller
 
 			$request->getSession()->getFlashBag()->add('project', 'project modified.');
 
+			echo "limit".$limit;
+			echo "<br>";
+			echo "page".$page;
+
 			return $this->redirect($this->generateUrl('index_index_homepage',
 				array(
 						'page'   => $page,
-						'offset' => $limit,
-
+				    	'offset' => $limit,
 				)
 
 			));
@@ -599,13 +606,11 @@ class ProjectsController extends Controller
 		//$session <===> $_SESSION[]
 		$session = $request->getSession();
 
-		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+		// on récupère en get la valeur page_limit, la page encours et le contenu du champ recherche
 
-		//$limit <==> $_GET["page_limit"]
-
-		$limit = $session->get("page_limit");
-		$page  = $session->get("page");
-
+		$limit   = $session->get("page_limit");
+		$page    = $session->get("page");
+		$content = $session->get("content");
 
 
 		//récupération de l'entityManager
@@ -630,8 +635,9 @@ class ProjectsController extends Controller
 		// on se redirige vers la index des projets
 		return $this->redirect($this->generateUrl('index_index_homepage',
 			array(
-				'page'   => $page,
-				'offset' => $limit,
+				'page'    => $page,
+				'offset'  => $limit,
+				'content' => $content,
 
 			)
 		));
