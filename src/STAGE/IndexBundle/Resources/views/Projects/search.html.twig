@@ -4,7 +4,7 @@
 	<form name="form1" action="{{ path('index_index_homepage') }}" method="get" >
 		<input type="submit" class="but" onclick="first()"    value="<<" readonly=""   {% if Page == 1 %} disabled="disabled"{% endif %}>
 		<input type="submit" class="but" onclick="backward()" value="<"  readonly="" {% if Page == 1 %} disabled="disabled"{% endif %}>
-		<input type="text" class="but" value="{{Page}}"     name="page" min="1" max={{last}} readonly >
+		<input type="text" class="but" value="{{Page}}"     name="page" min="1" max={{last}}  >
 		<input type="text" class="but" name="" value="/ {{last}}" readonly>
 		
 		<input type="submit" class="but" onclick="forward()" value=">" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
@@ -63,18 +63,24 @@
 
 
     $(document).ready(function() {
+        var redirection;
 		
 		{# // fonction qui scrute le choix de page_limit  et qui récupére le champ content #}
 
         $("select[name='page_limit']").change(function () {
-
+			
             // récupération des différentes valeurs qui nous interressent provenant des balises
             var offset1  = $("select[name='page_limit']").val();
             var content1 = $("input[name='content']").val();
 
             var url= '{{ path('index_index_homepage')}}?page_limit='+offset1+'&content='+content1;
-
-            location.href=url;
+            
+            clearTimeout(redirection);
+            
+            // on se donne un certain temps pour pouvoir rentrer notre demande
+			redirection = setTimeout(function(){
+                location.href=url;
+			},3000);
         });
 		
 		
@@ -94,14 +100,18 @@
 
             // définition de l'url avec les paramètres qui nous interressent
             var url= '{{ path('index_index_homepage')}}?page_limit='+offset2+'&content='+content2;
+            
+            clearTimeout(redirection);
 
             //Avant toute action, on va vers l'url qui nous interresse avec les paramétres récupérés lors de l'appui d'une touche dans le champ content
-            location.href=url;
+            // et on attends un certain temps avant d'envoyer la demande de recherche
+	        redirection = setTimeout(function(){
+                location.href=url;
+            },400);
 
 
 
             // puis on va afficher la liste des éléments en ajax
-
 
             $.ajax({
                 url: '{{ path('liste_index_homepage') }}',
@@ -118,11 +128,18 @@
                     $("#list").html(success);
 
 
-
+                    
+                    
+                    
+                    
                 }
+
+                
+                
+                
             });
 
-
+            
 
 
         });

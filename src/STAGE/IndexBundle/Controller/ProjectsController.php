@@ -23,8 +23,6 @@ class ProjectsController extends Controller
 	public function indexAction(request $request)
 	{
 
-		$nbrchar=0;
-
 		//$session <===> $_SESSION[]
 		$session = $request->getSession();
 
@@ -115,6 +113,11 @@ class ProjectsController extends Controller
 		// calcul de la dernière page
 		$last = ($limit != 0) ? ceil($counter / $limit) : 1;
 
+
+		$session->set("last",$last);
+
+
+
 		if ($last==0 && $limit!=0) {
 			$last=1;
 		}
@@ -149,13 +152,13 @@ class ProjectsController extends Controller
 		// Au sinon, on continue et on affiche la vue associée en faisant passer en paramètres les informations récupérées de la DB
 		return $this->render('STAGEIndexBundle:Projects:index.html.twig',
 			array( 'Projects' => $Projects,
-			       'Page' => $page,
-			       'offset'=> $limit,
-			       'count' => $counter,
-			       'last' => $last,
-			       'title' => $title,
+			       'Page'    => $page,
+			       'offset'  => $limit,
+			       'count'   => $counter,
+			       'last'    => $last,
+			       'title'   => $title,
 			       'content' => $content,
-				   'nbrchars' =>$nbrchar,
+
 			)
 		);
 	}
@@ -211,7 +214,7 @@ class ProjectsController extends Controller
 		$content = $request->query->get( "content" );
 		if(!$content){
 			//$content <===> $_SESSION["content"]
-			 // $content = $session->get("content");
+			// $content = $session->get("content");
 
 			$content='';
 		}
@@ -442,6 +445,21 @@ class ProjectsController extends Controller
 	// Appel d'un formulaire et insertion en base de données
 	public function newAction(Request $request)
 	{
+		//$session <===> $_SESSION[]
+		$session = $request->getSession();
+
+		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+
+		//$limit <==> $_GET["page_limit"]
+
+		$limit = $session->get("page_limit");
+		$last = $session->get("last");
+
+
+
+
+
+
 		// On crée un objet vide Project Entity (sans titre, sans date, sans content)
 		$project = new ProjectEntity();
 
@@ -455,8 +473,15 @@ class ProjectsController extends Controller
 
 			$request->getSession()->getFlashBag()->add('project', 'project saved.');
 
-			// return $this->redirect($this->generateUrl('view_index_homepage', array('id' => $project->getId())));
-			return $this->redirect($this->generateUrl('liste_index_homepage'));
+			return $this->redirect($this->generateUrl('index_index_homepage',
+				array(
+					'page_limit'=>$limit,
+
+					// une fois que l'on a rentré les infos, on va sur la dernière page
+					'page'=> $last,
+				))
+
+			);
 
 		}
 
@@ -469,6 +494,20 @@ class ProjectsController extends Controller
 	// Entrée forcée d'informations dans la DB
 	public function new2Action(Request $request)
 	{
+
+
+		//$session <===> $_SESSION[]
+		$session = $request->getSession();
+
+		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+
+		//$limit <==> $_GET["page_limit"]
+
+		$limit = $session->get("page_limit");
+		$last  = $session->get("last");
+
+
+
 		// Création de l'entité
 		$project = new ProjectEntity();
 
@@ -486,13 +525,39 @@ class ProjectsController extends Controller
 		// Étape 2 : On « flush » tout ce qui a été persisté avant
 		$em->flush();
 
+
 		// on se redirige vers la liste des projets
-		return $this->redirect($this->generateUrl('index_index_homepage'));
+		return $this->redirect($this->generateUrl('index_index_homepage',
+			array(
+				'page_limit'=>$limit,
+
+				// une fois que l'on a rentré les infos, on va sur la dernière page
+				'page'=> $last,
+			))
+
+		);
+
+
+
+
+
+
 	}
 
 
 	public function modifyAction(Request $request,$id)
 	{
+		//$session <===> $_SESSION[]
+		$session = $request->getSession();
+
+		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+
+		//$limit <==> $_GET["page_limit"]
+
+		$limit = $session->get("page_limit");
+		$page  = $session->get("page");
+
+
 
 		$em = $this->getDoctrine()->getManager();
 
@@ -509,8 +574,14 @@ class ProjectsController extends Controller
 
 			$request->getSession()->getFlashBag()->add('project', 'project modified.');
 
-			return $this->redirect($this->generateUrl('index_index_homepage'));
+			return $this->redirect($this->generateUrl('index_index_homepage',
+				array(
+						'page'   => $page,
+						'offset' => $limit,
 
+				)
+
+			));
 
 		}
 
@@ -525,6 +596,18 @@ class ProjectsController extends Controller
 	// Effacement d'une ligne dans la DB
 	public function deleteAction($id)
 	{
+		//$session <===> $_SESSION[]
+		$session = $request->getSession();
+
+		// on récupère en get la valeur page_limit qui vient de la vue "Liste"
+
+		//$limit <==> $_GET["page_limit"]
+
+		$limit = $session->get("page_limit");
+		$page  = $session->get("page");
+
+
+
 		//récupération de l'entityManager
 		$em = $this->container->get('doctrine')->getEntityManager();
 
@@ -544,8 +627,14 @@ class ProjectsController extends Controller
 		// on valide
 		$em->flush();
 
-		// on se redirige vers la liste des projets
-		return $this->redirect($this->generateUrl('index_index_homepage'));
+		// on se redirige vers la index des projets
+		return $this->redirect($this->generateUrl('index_index_homepage',
+			array(
+				'page'   => $page,
+				'offset' => $limit,
+
+			)
+		));
 	}
 
 

@@ -17,32 +17,17 @@
                     <p><u>Id</u>:     <u>{{ list.id }} </u> </p>
                     <h2><u>Title : </u>
 	
-	                    <br>
-	
-	
-	                    {% set twig_content_variable   = list.projTitle %}
-	                    {% set replace_value_var       = content %}
-	                    {% set replace_with_value_var  = '<u>'~content~'</u>' %}
-	                                                        
-                 
-    
-                        titre   : {{  twig_content_variable }} <br>
-	                    content :{{  replace_value_var }}    <br>
-	                    valeur de rplct : {{  replace_with_value_var }} <br>
-		                   
-                                               
-	                    {{ twig_content_variable|replace({ (replace_value_var): replace_with_value_var      }) }}
-	
-	
-	                    	 
-                            
-                        <br>
+	                    {# // Mise en evidence du ou des mots recherchés dans la description #}
+						{% set Title            = list.projTitle %}
+						{% set search_value     = content %}
+                        {% set search_value_maj = content %}
+						{% set replace_with     = '<strong style="background-color:green; ">'~content~'</strong>' %}
 						
-						
+						{{ Title|replace({ (search_value): replace_with })|raw }}
+                                                          
                     </h2>
                     
-                    
-                    
+                                        
                     <hr>
 					
 					{% if list.projDate is not null %}
@@ -51,34 +36,18 @@
 					
 					{% endif %}
                     
-                  
-                    <p><u>Description</u>: {{ list.projDescr|striptags }}</p><br>
-    
                     
                     <p><u>Description</u>:
 						
-														
-							
-	                   
-	                    {% set twig_content_variable   = list.projDescr %}
+						{# // Mise en evidence du ou des mots recherchés dans la description #}
+	                    {% set Descr        = list.projDescr %}
+	                    {% set search_value = content %}
+	                    {% set replace_with = '<strong style="background-color: green; ">'~content~'</strong>' %}
 	
-			                   
-	                    {% set replace_value_var       = content %}
-	                    {% set replace_with_value_var  = content %}
-    
-    
-	
-	
-	                    {{ twig_content_variable|replace({ (replace_value_var): replace_with_value_var      })|striptags|upper }}
+	                    {{ Descr|replace({ (search_value): replace_with })|raw }}
                         
                         
-                        
-                        
-                        
-	
-	                    
-                    
-                    </p><br>
+                    </p>
                 
                 
                 </div>
