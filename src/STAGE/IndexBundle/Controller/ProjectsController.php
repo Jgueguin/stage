@@ -19,7 +19,7 @@ use STAGE\IndexBundle\Form\ProjectEntityType;
 class ProjectsController extends Controller
 {
 
-	// Affichage de la page index : Vues Index qui contient vues search et Liste
+	// Affichage de la page Projects : Vues Index qui contient vues search et Liste
 	public function projectsAction(request $request)
 	{
 
@@ -54,9 +54,9 @@ class ProjectsController extends Controller
 
 
 
-		// Partie correpondant au premier formulaire qui avait 2 champs de recherche
-		//$title <==> $_GET["title"]
-		/* $title = $request->query->get( "title" );
+		// partie correspondant à la première version du moteur de recherche avec deux champs
+		/* //$title <==> $_GET["title"]
+		$title = $request->query->get( "title" );
 		if(!$title)   {
 			//$title <===> $_SESSION["title"]
 			//$title = $session->get("title");
@@ -69,9 +69,9 @@ class ProjectsController extends Controller
 		$content = $request->query->get( "content" );
 		if(!$content){
 			//$content <===> $_SESSION["content"]
-			// $content = $session->get("content");
+			//$content = $session->get("content");
 
-			$content='';
+			 $content='';
 		}
 		$session->set("content",$content);
 
@@ -97,7 +97,6 @@ class ProjectsController extends Controller
 		$qb2  = $em->getRepository( 'STAGEIndexBundle:ProjectEntity' )->findAll();
 		$projects = $qb ->where( '1 = 1' )
 		;
-
 
 
 		// fichier contenant requête à la DB
@@ -158,7 +157,6 @@ class ProjectsController extends Controller
 			       'last'    => $last,
 			       /* 'title'   => $title, */ /* appartient à la premiere version du moteur de recherche */
 			       'content' => $content,
-
 			)
 		);
 	}
@@ -174,7 +172,6 @@ class ProjectsController extends Controller
 
 		//$limit <==> $_GET["page_limit"]
 		$limit = $request->query->get( 'page_limit' );
-
 
 
 		// si la valeur n'existe pas, on recupère la valeur qui a été enregistrée le coup d'avant dans la variable Session
@@ -199,21 +196,23 @@ class ProjectsController extends Controller
 		$session->set("page",$page);
 
 
-		//$title <==> $_GET["title"]
+
+		// partie correspondant à la première version du moteur de recherche avec deux champs
+		/* //$title <==> $_GET["title"]
 		$title = $request->query->get( "title" );
 		if(!$title)   {
 			//$title <===> $_SESSION["title"]
 			//$title = $session->get("title");
 			$title='';
 		}
-		$session->set("title",$title);
+		$session->set("title",$title); */
 
 
 		//$content <==> $_GET["content"]
 		$content = $request->query->get( "content" );
 		if(!$content){
 			//$content <===> $_SESSION["content"]
-			// $content = $session->get("content");
+			//$content = $session->get("content");
 
 			$content='';
 		}
@@ -299,11 +298,9 @@ class ProjectsController extends Controller
 			       'title' => $title,
 			       'content' => $content,
 			       'nbrchars' =>$nbrchar,
-
 			)
 		);
 	}
-
 
 
 	// Méthode qui sert pour la partie "Moteur de Recherche"
@@ -340,23 +337,23 @@ class ProjectsController extends Controller
 		$session->set("page",$page);
 
 
-		//$title <==> $_GET["title"]
+		// partie correspondant à la première version du moteur de recherche avec deux champs
+		/* //$title <==> $_GET["title"]
 		$title = $request->query->get( "title" );
 		if(!$title)   {
 			//$title <===> $_SESSION["title"]
 			//$title = $session->get("title");
 			$title='';
 		}
-		$session->set("title",$title);
+		$session->set("title",$title); */
 
 
 		//$content <==> $_GET["content"]
 		$content = $request->query->get( "content" );
 		if(!$content){
 			//$content <===> $_SESSION["content"]
-			// $content = $session->get("content");
-
-			$content='';
+			//$content = $session->get("content");
+			 $content='';
 		}
 		$session->set("content",$content);
 
@@ -506,7 +503,6 @@ class ProjectsController extends Controller
 
 
 
-
 		// Création de l'entité
 		$project = new ProjectEntity();
 
@@ -525,11 +521,11 @@ class ProjectsController extends Controller
 		$em->flush();
 
 
-		// on se redirige vers la liste des projets
+		// on se redirige vers la liste des éléménts
 		return $this->redirect($this->generateUrl('projects_index_homepage',
 			array(
 				'page_limit' => $limit,
-				'content'    => $content,
+
 
 				// une fois que l'on a rentré les infos, on veut aller sur la dernière page
 				'page'       => $last,
@@ -554,9 +550,18 @@ class ProjectsController extends Controller
 
 		$limit    = $session->get("page_limit");
 		$page     = $session->get("page");
-		$content  = $session->get("content");
 
 
+		// si on a effectué une recherche, on recupere les mots clés pour pouvoir revenir sur la page de recherche avec ces mots cles
+		if ($session->get("content")) {
+
+			$content = $session->get("content");
+			$session->set("content",$content);
+
+		} else {
+			// sinon on n'a pas fait de recherche particulière et on veut recupèrer la totalité des élements de la base de données.
+			$content='';
+		}
 
 		$em = $this->getDoctrine()->getManager();
 
@@ -573,18 +578,16 @@ class ProjectsController extends Controller
 
 			$request->getSession()->getFlashBag()->add('project', 'project modified.');
 
-			echo "limit".$limit;
-			echo "<br>";
-			echo "page".$page;
 
 			return $this->redirect($this->generateUrl('projects_index_homepage',
 				array(
 						'page'   => $page,
 				    	'offset' => $limit,
+
+						//permet de revenir sur la page avec la recherche en cours
+						'content' => $content,
 				)
-
 			));
-
 		}
 
 		return $this->render('STAGEIndexBundle:Projects:modify.html.twig', array(
@@ -631,6 +634,8 @@ class ProjectsController extends Controller
 			array(
 				'page'    => $page,
 				'offset'  => $limit,
+
+				//permet de revenir sur la page avec la recherche en cours
 				'content' => $content,
 
 			)
@@ -638,8 +643,27 @@ class ProjectsController extends Controller
 	}
 
 
-	public function viewAction($id)
+	public function viewAction(Request $request,$id)
 	{
+
+		//$session <===> $_SESSION[]
+		$session = $request->getSession();
+
+		// on récupère en get la valeur page_limit, la page encours et le contenu du champ recherche
+
+		$limit   = $session->get("page_limit");
+		$page    = $session->get("page");
+
+
+
+		// si on a effectué une recherche, on recupere les mots clés pour pouvoir revenir sur la page de recherche avec ces mots cles
+		if ($session->get("content")) {
+
+			$content = $session->get("content");
+			$session->set("content",$content);
+
+		}
+
 		$doctrine= $this->getDoctrine();
 		$em = $doctrine -> getManager();
 
@@ -650,8 +674,9 @@ class ProjectsController extends Controller
 			array(
 				'project' => $project2,
 
+				//permet de revenir sur la page avec la recherche en cours
+				'content' => $content,
 			)
-
 
 		);
 	}

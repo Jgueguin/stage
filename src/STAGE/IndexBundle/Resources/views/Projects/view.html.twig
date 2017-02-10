@@ -9,17 +9,13 @@
 {% endblock %}
 
 {% block index_body %}
-
+    <a  href="{{ path('projects_index_homepage') }}?content={{ content }}&page_limit=5" class="buttons btn btn-info"> Previous Page</a>
     <h2><u> Title : </u> {{project.projTitle}}</h2>
 
     <p> Date  :  {{ project.projDate| date('d/m/Y') }} </p>
 
     <p> <br>  {{ project.projDescr|raw }} </p>
-    <hr>
-    
-    <a  href="{{ path('projects_index_homepage') }}" class="buttons btn btn-info"> Previous Page</a>
-
-    
+      
 
 
 {% endblock %}
