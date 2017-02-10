@@ -10,19 +10,16 @@
 
 {% block index_body %}
 
-    <h1><u> Id of the project : </u>    {{project.id}}  </h1>
-    <h2><u> Title of the Project : </u> {{project.projTitle}}</h2>
+    <h2><u> Title : </u> {{project.projTitle}}</h2>
 
-    <p> Date of the Project :  {{ project.projDate| date('d/m/Y') }} </p>
+    <p> Date  :  {{ project.projDate| date('d/m/Y') }} </p>
 
-    <p> Content of the Project :<br>  {{ project.projDescr|raw }} </p>
+    <p> <br>  {{ project.projDescr|raw }} </p>
     <hr>
-    <p> Content of the Project :<br>  {{ project.projDescr }} </p>
+    
+    <a  href="{{ path('projects_index_homepage') }}" class="buttons btn btn-info"> Previous Page</a>
 
-
-
-
-    <hr>
+    
 
 
 {% endblock %}

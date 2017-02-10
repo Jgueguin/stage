@@ -2,13 +2,13 @@
 <div id="research">
 	
 	<form name="form1" action="{{ path('projects_index_homepage') }}" method="get" >
-		<input type="submit" class="but" onclick="first()"    value="<<" readonly=""   {% if Page == 1 %} disabled="disabled"{% endif %}>
-		<input type="submit" class="but" onclick="backward()" value="<"  readonly="" {% if Page == 1 %} disabled="disabled"{% endif %}>
-		<input type="text" class="but" value="{{Page}}"     name="page" min="1" max={{last}}  >
-		<input type="text" class="but" name="" value="/ {{last}}" readonly>
+		<input type="submit" class="but btn btn-info" onclick="first()"    value="<<" readonly=""   {% if Page == 1 %} disabled="disabled"{% endif %}>
+		<input type="submit" class="but btn btn-info" onclick="backward()" value="<"  readonly="" {% if Page == 1 %} disabled="disabled"{% endif %}>
+		<input type="text" class="but " value="{{Page}}"     name="page" min="1" max={{last}}  >
+		<input type="text" class="but " name="" value="/ {{last}}" readonly>
 		
-		<input type="submit" class="but" onclick="forward()" value=">" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
-		<input type="submit" class="but" onclick="last()"    value=">>" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
+		<input type="submit" class="but btn btn-info" onclick="forward()" value=">" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
+		<input type="submit" class="but btn btn-info" onclick="last()"    value=">>" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
 	
 
 	
@@ -37,7 +37,9 @@
 		<input type='text'  class='count' name="count" value='{{count}} element(s) found'  readonly >
 	
 	</form>
+	<br>
 </div>
+
 
 <script>
     function backward(){

@@ -52,7 +52,6 @@ input.descr{
     width:310px;
 }
 
-
 input.but {
     width:30px;
     text-align: center;
@@ -74,9 +73,7 @@ article {
 }
 
 article:hover{
-    height: 450px;
-
-
+    height: 400px;
 }
 
 article a {
@@ -126,6 +123,5 @@ div.elements {
 .selec {
     background-color: lightgreen;
     text-shadow: 1px 1px #ff00ff;
-
 
 }

@@ -13,54 +13,53 @@
                 
                 <img src="{{asset("bundles/stageindex/images/folder.jpg")}}"  style="height:50px" class=" img_descr img-responsive">
                 
-                <div class="content">
+                <div class="content-fluid">
                     
                     <h2><u>Title : </u>
-	
-	                    {# // Mise en evidence du ou des mots recherchés dans la description #}
+						
+						{# // Mise en evidence du ou des mots recherchés dans la description #}
 						{% set Title            = list.projTitle %}
 						{% set search_value     = content %}
-                        {% set search_value_maj = content %}
+						{% set search_value_maj = content %}
 						{% set replace_with     = '<strong style="background-color:green; ">'~content~'</strong>' %}
 						
 						{{ Title|replace({ (search_value): replace_with })|raw }}
-                                                         
+                    
                     </h2>
                     <div class="buttons">
-        
-                        <a  href="{{ path('view_index_homepage',{'id':list.id})   }}"> Detail</a>
-                        <a  href="{{ path('modify_index_homepage',{'id':list.id}) }}"> Modify </a>
-                        <a  href="{{ path('delete_index_homepage',{'id':list.id}) }}"> Delete </a>
+                        
+                        <a  href="{{ path('view_index_homepage',{'id':list.id})   }}" class="buttons btn btn-info"> Detail</a>
+                        <a  href="{{ path('modify_index_homepage',{'id':list.id}) }}" class="buttons btn btn-info"> Modify </a>
+                        <a  href="{{ path('delete_index_homepage',{'id':list.id}) }}" class="buttons btn btn-info"> Delete </a>
                     </div>
-                                        
+                    
                     <hr>
 					
 					{% if list.projDate is not null %}
                         <p> Creation: {{ list.projDate| date('d/m/Y')}} </p>
                         <hr>
-					
 					{% endif %}
-    
-                      
                     
                     
-                    <p><u>Description</u>:
+                    
+                    <div style="overflow: auto; height:150px;">
+                       
 						
 						{# // Mise en evidence du ou des mots recherchés dans la description #}
-	                    {% set Descr        = list.projDescr %}
-	                    {% set search_value = content %}
-	                    {% set replace_with = '<strong style="background-color: green; ">'~content~'</strong>' %}
-	
-	                    {{ Descr|replace({ (search_value): replace_with })|raw }}
-                        
-                    </p>
-                    <p><u>Id</u>:     <u>{{ list.id }} </u> </p>
+						{% set Descr        = list.projDescr %}
+						{% set search_value = content %}
+						{% set replace_with = '<strong style="background-color: green; ">'~content~'</strong>' %}
+						
+						{{ Descr|replace({ (search_value): replace_with })|raw }}
+                    
+                    </div>
+                    <p><u>Id</u>:    <u>{{ list.id }} </u> </p>
                 
                 
                 </div>
-                
-                
-                
+            
+            
+            
             
             </article>
         

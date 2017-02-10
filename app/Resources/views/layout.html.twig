@@ -7,84 +7,83 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <title>
-        {% block title %}
-        Welcome
-        {% endblock %}
+		{% block title %}
+            Welcome
+		{% endblock %}
     </title>
-
-    {% block stylesheet %}
-
-    {# chargement normalize.css #}
+	
+	{% block stylesheet %}
+		
+		{# chargement normalize.css #}
         <link rel="stylesheet" href="{{asset("bundles/stageindex/css/normalize.css")}}">
-        {# <link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css"> #}
-
-    {# Chargement CSS Bootstrap #}
-        {# <link rel="stylesheet" href="{{asset("bundles/stageindex/css/bootstrap3-2-0.min.css")}}"> #}
+		{# <link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css"> #}
+		
+		{# Chargement CSS Bootstrap #}
+		{# <link rel="stylesheet" href="{{asset("bundles/stageindex/css/bootstrap3-2-0.min.css")}}"> #}
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-    {# Chargement CSS personnalisé #}
+		
+		{# Chargement CSS personnalisé #}
         <link rel="stylesheet" href="{{asset("bundles/stageindex/css/css-perso.css")}}">
-
-    {% endblock %}
-
-
-    {% block javascripts %}
-
-    {#  Insertion Jquery #}
+	
+	{% endblock %}
+	
+	
+	{% block javascripts %}
+		
+		{#  Insertion Jquery #}
         <script src="{{asset("bundles/stageindex/js/jquery-3.1.1.js")}}"></script>
-
-    {#  Insertion script de Bootsrtrap  #}
+		
+		{#  Insertion script de Bootsrtrap  #}
         <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-
-    {% endblock %}
+	
+	{% endblock %}
 
 
 </head>
 
 <style>
-body {
-    background-image: url("{{asset("bundles/stageindex/images/ipsum-bkg.jpg")}}");
-}
+    body {
+        background-image: url("{{asset("bundles/stageindex/images/ipsum-bkg.jpg")}}");
+    }
 </style>
 
 <body>
 
-    <br>
-    <div class="container">
-
-        {# ///// HEADER ///// #}
-        <div id="header" class="jumbotron text-center">
-            <h1> Stage Développeur Logiciel</h1>
-        </div>
-
-
-        <div class="row">
-
-            {# ///////  Inclusion du MENU /////   #}
-            <div id="menu" class="col-md-2 " >
-                {{ include("menu2.html.twig") }}
-            </div>
-
-
-            {# ///// CONTENT /////   #}
-
-            <div id="content" class="col-md-10">
-                {% block body %}
-                {% endblock %}
-            </div>
-        </div>
-
-
-        {#  ///// BAS DE PAGE  /////  #}
-        <footer>
-            <hr>
-            <p> Formation BGE © {{ 'now'|date('Y') }}. </p>
-            <p> </p>
-
-        </footer>
+<div class="container-fluid">
+	
+	{# ///// HEADER ///// #}
+    <div id="header" class="jumbotron text-center">
+        <h1> Stage Développeur Logiciel</h1>
     </div>
+    
+    
+    <div class="row">
+		
+		{# ///////  Inclusion du MENU /////   #}
+        <div id="menu" class="col-md-2 " >
+			{{ include("menu2.html.twig") }}
+        </div>
+		
+		
+		{# ///// CONTENT /////   #}
+        
+        <div id="content" class="col-md-10">
+			{% block body %}
+			{% endblock %}
+        </div>
+    </div>
+	
+	
+	{#  ///// BAS DE PAGE  /////  #}
+    <footer>
+        <hr>
+        <p> Formation BGE © {{ 'now'|date('Y') }}. </p>
+        <p> </p>
+    
+    </footer>
+</div>
 
 </body>
 </html>

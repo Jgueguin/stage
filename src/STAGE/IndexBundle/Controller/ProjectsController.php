@@ -557,9 +557,6 @@ class ProjectsController extends Controller
 		$content  = $session->get("content");
 
 
-		echo "limit".$limit;
-		echo "<br>";
-		echo "page".$page;
 
 		$em = $this->getDoctrine()->getManager();
 
