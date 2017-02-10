@@ -9,9 +9,13 @@
 {% endblock %}
 
 {% block index_body %}
-    <a  href="{{ path('projects_index_homepage') }}?content={{ content }}&page_limit=5" class="buttons btn btn-info"> Previous Page</a>
+    <a  class="buttons btn btn-info" href="{{ path('projects_index_homepage') }}?content={{ content }}&page_limit=5" > Previous Page</a>
+    <a  class="buttons btn btn-info" href="{{ path('modify_index_homepage',{'id':project.id}) }}" > Edit </a>
+    <a  class="buttons btn btn-info" href="{{ path('delete_index_homepage',{'id':project.id}) }}" > Delete </a>
+    
+    
     <h2><u> Title : </u> {{project.projTitle}}</h2>
-
+    
     <p> Date  :  {{ project.projDate| date('d/m/Y') }} </p>
 
     <p> <br>  {{ project.projDescr|raw }} </p>

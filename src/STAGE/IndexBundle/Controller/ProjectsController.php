@@ -502,7 +502,6 @@ class ProjectsController extends Controller
 		$content = $session->get("content");
 
 
-
 		// Création de l'entité
 		$project = new ProjectEntity();
 
@@ -531,12 +530,6 @@ class ProjectsController extends Controller
 			))
 
 		);
-
-
-
-
-
-
 	}
 
 
@@ -663,7 +656,6 @@ class ProjectsController extends Controller
 			// sinon on n'a pas fait de recherche particulière et on veut afficher la totalité des élements de la base de données.
 			$content='';
 		}
-
 
 
 		$doctrine= $this->getDoctrine();

@@ -2,7 +2,6 @@
 {# // VUE Liste des éléments //  #}
 {# ////////////////////////////  #}
 
-
 <div id="list">
 	
 	{% set c =0 %}
@@ -28,10 +27,11 @@
 						{{ Title|replace({ (search_value): replace_with })|raw }}
                     
                     </h2>
+                    
                     <div class="buttons">
                         
                         <a  href="{{ path('view_index_homepage',{'id':list.id})   }}" class="buttons btn btn-info"> Detail</a>
-                        <a  href="{{ path('modify_index_homepage',{'id':list.id}) }}" class="buttons btn btn-info"> Modify </a>
+                        <a  href="{{ path('modify_index_homepage',{'id':list.id}) }}" class="buttons btn btn-info"> Edit </a>
                         <a  href="{{ path('delete_index_homepage',{'id':list.id}) }}" class="buttons btn btn-info"> Delete </a>
                     </div>
                     
@@ -39,14 +39,11 @@
 					
 					{% if list.projDate is not null %}
                         <p> Creation: {{ list.projDate| date('d/m/Y')}} </p>
-                        <hr>
+                      
 					{% endif %}
-                    
-                    
-                    
+                                                            
                     <div style="overflow: auto; height:150px;">
                        
-						
 						{# // Mise en evidence du ou des mots recherchés dans la description #}
 						{% set Descr        = list.projDescr %}
 						{% set search_value = content %}
@@ -57,12 +54,9 @@
                     </div>
                     <p><u>Id</u>:    <u>{{ list.id }} </u> </p>
                 
-                
+               
                 </div>
-            
-            
-            
-            
+                                            
             </article>
         
         </section>
