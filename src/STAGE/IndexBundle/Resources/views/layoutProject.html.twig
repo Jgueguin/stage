@@ -19,5 +19,8 @@
 	{# On définit un nouveau bloc, que les vues du bundle pourront remplir #}
 	{% block index_body %}
 	{% endblock %}
-
+	
+	{# Ajout des actions possibles sur les projets #}
+	{{ include("STAGEIndexBundle:Projects:menuprojects.html.twig") }}
+	
 {% endblock %}

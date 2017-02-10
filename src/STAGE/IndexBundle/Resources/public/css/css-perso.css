@@ -5,7 +5,7 @@ a:hover {
 }
 
 .jumbotron {
-    background-color: #FF866A; /* Orange */
+    background-color: lightsalmon;
     color: #ffffff;
     box-shadow: 10px 10px 5px #888888;
 
@@ -15,20 +15,34 @@ a:hover {
     height:500px;
 }
 
-.navbar.navbar-default, img {
+/* Définition image */
+img {
     box-shadow: 10px 10px 5px #888888;
     border-radius: 15px;
     background-color: lightgrey;
 }
 
-.nav.nav-pills.nav-stacked, img {
 
+/* Définition menu horizontal*/
+.navbar.navbar-default {
     box-shadow: 10px 10px 5px #888888;
     border-radius: 15px;
-    background-color: lightgrey;
+    background-color: lightsalmon;
+    color : black;
+
 }
 
-.nav.nav-pills.nav-stacked, a {
+
+/* Définition menu vertical*/
+.nav.nav-pills.nav-stacked{
+    box-shadow: 10px 10px 5px #888888;
+    border-radius: 15px;
+    background-color: lightsalmon;
+    color: black;
+}
+
+/* définition des liens a */
+a {
     color: black;
 }
 

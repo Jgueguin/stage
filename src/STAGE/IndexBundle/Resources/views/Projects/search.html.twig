@@ -9,9 +9,9 @@
 		
 		<input type="submit" class="but btn btn-info" onclick="forward()" value=">" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
 		<input type="submit" class="but btn btn-info" onclick="last()"    value=">>" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
-	
-
-	
+		
+		
+		
 		<select  name="page_limit" >
 			<option value="0" {% if offset == 0 %}   selected="selected"  {% endif %}>All</option>
 			<option value="2" {% if offset == 2 %}   selected="selected"  {% endif %}>2</option>
@@ -21,7 +21,7 @@
 			<option value="20" {% if offset == 20 %} selected="selected"  {% endif %}>20</option>
 		</select>
 		
-			
+		
 		{# code correspondant au premier champ du premier formulaire
 		<input type="text" name="title"   value="{{title}}"     placeholder="Title"> #}
 		
@@ -66,7 +66,31 @@
 
     $(document).ready(function() {
         var redirection;
-			
+
+        $("input[name='page']").keyup(function () {
+
+            // récupération des différentes valeurs qui nous interressent provenant des balises
+            var offset4  = $("select[name='page_limit']").val();
+            var content4 = $("input[name='content']").val();
+            var page4    = $("input[name='page']").val();
+
+            console.log(offset4);
+
+            // définition de l'url avec les paramètres qui nous interressent
+            var url = '{{ path('projects_index_homepage') }}?page_limit=' + offset4 + '&content=' + content4+ '&page=' + page4;
+
+            clearTimeout(redirection);
+
+            // on se donne un certain temps pour pouvoir rentrer notre demande
+            redirection = setTimeout(function () { location.href = url; }, 400);
+
+
+        });
+		
+		
+		
+		
+		
 		{# // fonction qui scrute le choix de page_limit  et qui récupére le champ content #}
         $("select[name='page_limit']").change(function () {
 
@@ -84,10 +108,11 @@
         });
 		
 		
-		{#  fonction qui regarde si une touche a été appuyée pour ensuite effectuer des fonctions ajax #}
+			
+		
+		{#  fonction qui regarde si une touche a été appuyée dans le champ de recherche pour ensuite effectuer des fonctions ajax #}
 
         $("input[name='content']").keyup(function () {
-
 
             // récupération des différentes valeurs qui nous interressent provenant des balises
             var offset2  = $("select[name='page_limit']").val();

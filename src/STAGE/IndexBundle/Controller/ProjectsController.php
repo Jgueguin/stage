@@ -526,7 +526,6 @@ class ProjectsController extends Controller
 			array(
 				'page_limit' => $limit,
 
-
 				// une fois que l'on a rentré les infos, on veut aller sur la dernière page
 				'page'       => $last,
 			))
@@ -559,7 +558,7 @@ class ProjectsController extends Controller
 			$session->set("content",$content);
 
 		} else {
-			// sinon on n'a pas fait de recherche particulière et on veut recupèrer la totalité des élements de la base de données.
+			// sinon on n'a pas fait de recherche particulière et on veut afficher la totalité des élements de la base de données.
 			$content='';
 		}
 
@@ -658,11 +657,14 @@ class ProjectsController extends Controller
 
 		// si on a effectué une recherche, on recupere les mots clés pour pouvoir revenir sur la page de recherche avec ces mots cles
 		if ($session->get("content")) {
-
 			$content = $session->get("content");
 			$session->set("content",$content);
-
+		}else {
+			// sinon on n'a pas fait de recherche particulière et on veut afficher la totalité des élements de la base de données.
+			$content='';
 		}
+
+
 
 		$doctrine= $this->getDoctrine();
 		$em = $doctrine -> getManager();
