@@ -1,7 +1,7 @@
 
 <div id="research">
 	
-	<form name="form1" action="{{ path('index_index_homepage') }}" method="get" >
+	<form name="form1" action="{{ path('projects_index_homepage') }}" method="get" >
 		<input type="submit" class="but" onclick="first()"    value="<<" readonly=""   {% if Page == 1 %} disabled="disabled"{% endif %}>
 		<input type="submit" class="but" onclick="backward()" value="<"  readonly="" {% if Page == 1 %} disabled="disabled"{% endif %}>
 		<input type="text" class="but" value="{{Page}}"     name="page" min="1" max={{last}}  >
@@ -9,9 +9,9 @@
 		
 		<input type="submit" class="but" onclick="forward()" value=">" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
 		<input type="submit" class="but" onclick="last()"    value=">>" readonly="" {% if Page == last or offset == 0 %} disabled="disabled"{% endif %}>
-		
-		
-		
+	
+
+	
 		<select  name="page_limit" >
 			<option value="0" {% if offset == 0 %}   selected="selected"  {% endif %}>All</option>
 			<option value="2" {% if offset == 2 %}   selected="selected"  {% endif %}>2</option>
@@ -21,8 +21,7 @@
 			<option value="20" {% if offset == 20 %} selected="selected"  {% endif %}>20</option>
 		</select>
 		
-		
-		
+			
 		{# code correspondant au premier champ du premier formulaire
 		<input type="text" name="title"   value="{{title}}"     placeholder="Title"> #}
 		
@@ -44,6 +43,7 @@
     function backward(){
         var page = parseInt($("input[name='page']").val()) - 1;
         $("input[name='page']").val(page);
+
     }
 
     function forward(){
@@ -64,23 +64,21 @@
 
     $(document).ready(function() {
         var redirection;
-		
-		{# // fonction qui scrute le choix de page_limit  et qui récupére le champ content #}
-
-        $("select[name='page_limit']").change(function () {
 			
+		{# // fonction qui scrute le choix de page_limit  et qui récupére le champ content #}
+        $("select[name='page_limit']").change(function () {
+
             // récupération des différentes valeurs qui nous interressent provenant des balises
             var offset1  = $("select[name='page_limit']").val();
             var content1 = $("input[name='content']").val();
+            var url      = '{{ path('projects_index_homepage')}}?page_limit='+offset1+'&content='+content1;
 
-            var url= '{{ path('index_index_homepage')}}?page_limit='+offset1+'&content='+content1;
-            
             clearTimeout(redirection);
-            
+
             // on se donne un certain temps pour pouvoir rentrer notre demande
-			redirection = setTimeout(function(){
+            redirection = setTimeout(function(){
                 location.href=url;
-			},3000);
+            },3000);
         });
 		
 		
@@ -89,27 +87,22 @@
         $("input[name='content']").keyup(function () {
 
 
-
             // récupération des différentes valeurs qui nous interressent provenant des balises
             var offset2  = $("select[name='page_limit']").val();
             var content2 = $("input[name='content']").val();
             var count2   = $("input[name='count']").val();
             var page     = $("input[name='page']").val();
 
-
-
             // définition de l'url avec les paramètres qui nous interressent
-            var url= '{{ path('index_index_homepage')}}?page_limit='+offset2+'&content='+content2;
-            
+            var url= '{{ path('projects_index_homepage')}}?page_limit='+offset2+'&content='+content2;
+
             clearTimeout(redirection);
 
             //Avant toute action, on va vers l'url qui nous interresse avec les paramétres récupérés lors de l'appui d'une touche dans le champ content
             // et on attends un certain temps avant d'envoyer la demande de recherche
-	        redirection = setTimeout(function(){
+            redirection = setTimeout(function(){
                 location.href=url;
             },400);
-
-
 
             // puis on va afficher la liste des éléments en ajax
 
@@ -127,20 +120,9 @@
 
                     $("#list").html(success);
 
-
-                    
-                    
-                    
-                    
                 }
 
-                
-                
-                
             });
-
-            
-
 
         });
 

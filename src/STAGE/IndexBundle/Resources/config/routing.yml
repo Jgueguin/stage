@@ -3,9 +3,9 @@ stage_index_homepage:
     defaults: { _controller: STAGEIndexBundle:Pagegarde:index }
 
 
-index_index_homepage:
-    path:     /index/
-    defaults: { _controller: STAGEIndexBundle:Projects:index }
+projects_index_homepage:
+    path:     /Projects/
+    defaults: { _controller: STAGEIndexBundle:Projects:projects }
 
 
 liste_index_homepage:
@@ -15,7 +15,6 @@ liste_index_homepage:
 search_index_homepage:
     path:     /search/
     defaults: { _controller: STAGEIndexBundle:Projects:search }
-
 
 
 

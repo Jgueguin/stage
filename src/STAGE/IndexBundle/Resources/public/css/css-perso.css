@@ -52,16 +52,11 @@ input.descr{
     width:310px;
 }
 
-input.count{
-    width:130px;
-}
-
 
 input.but {
     width:30px;
     text-align: center;
 }
-
 
 
 /* ########## Zone LISTING */
@@ -125,7 +120,9 @@ div.elements {
     display: inline-block;
 }
 
+
 /* selection nbre elements pagination  */
+
 .selec {
     background-color: lightgreen;
     text-shadow: 1px 1px #ff00ff;

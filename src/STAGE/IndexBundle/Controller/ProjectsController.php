@@ -20,7 +20,7 @@ class ProjectsController extends Controller
 {
 
 	// Affichage de la page index : Vues Index qui contient vues search et Liste
-	public function indexAction(request $request)
+	public function projectsAction(request $request)
 	{
 
 		//$session <===> $_SESSION[]
@@ -164,7 +164,6 @@ class ProjectsController extends Controller
 	}
 
 
-
 	// Méthode qui sert pour calculer les requêtes et afficher que la liste des résultats
 	public function listeAction(request $request)
 	{
@@ -304,7 +303,6 @@ class ProjectsController extends Controller
 			)
 		);
 	}
-
 
 
 
@@ -472,7 +470,7 @@ class ProjectsController extends Controller
 
 			$request->getSession()->getFlashBag()->add('project', 'project saved.');
 
-			return $this->redirect($this->generateUrl('index_index_homepage',
+			return $this->redirect($this->generateUrl('projects_index_homepage',
 				array(
 					'page_limit' => $limit,
 					'content'    => $content,
@@ -528,7 +526,7 @@ class ProjectsController extends Controller
 
 
 		// on se redirige vers la liste des projets
-		return $this->redirect($this->generateUrl('index_index_homepage',
+		return $this->redirect($this->generateUrl('projects_index_homepage',
 			array(
 				'page_limit' => $limit,
 				'content'    => $content,
@@ -582,7 +580,7 @@ class ProjectsController extends Controller
 			echo "<br>";
 			echo "page".$page;
 
-			return $this->redirect($this->generateUrl('index_index_homepage',
+			return $this->redirect($this->generateUrl('projects_index_homepage',
 				array(
 						'page'   => $page,
 				    	'offset' => $limit,
@@ -596,7 +594,6 @@ class ProjectsController extends Controller
 			'form' => $form->createView(),
 		));
 	}
-
 
 
 
@@ -632,8 +629,8 @@ class ProjectsController extends Controller
 		// on valide
 		$em->flush();
 
-		// on se redirige vers la index des projets
-		return $this->redirect($this->generateUrl('index_index_homepage',
+		// on se redirige vers la page projets
+		return $this->redirect($this->generateUrl('projects_index_homepage',
 			array(
 				'page'    => $page,
 				'offset'  => $limit,
