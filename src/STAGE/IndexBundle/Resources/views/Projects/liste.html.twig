@@ -5,11 +5,11 @@
 <div id="list">
 	
 	{% set c =0 %}
-    
+	
 	{% for list in Projects %}
-              
+        
         <section class="listing">
-	        
+            
             <article>
                 
                 <img src="{{asset("bundles/stageindex/images/folder.jpg")}}"  style="height:50px" class=" img_descr img-responsive">
@@ -39,11 +39,11 @@
 					
 					{% if list.projDate is not null %}
                         <p> Creation: {{ list.projDate| date('d/m/Y')}} </p>
-                      
+					
 					{% endif %}
-                                                            
+                    
                     <div style="overflow: auto; height:150px;">
-                       
+						
 						{# // Mise en evidence du ou des mots recherchés dans la description #}
 						{% set Descr        = list.projDescr %}
 						{% set search_value = content %}
@@ -54,13 +54,12 @@
                     </div>
                     <p><u>Id</u>:    <u>{{ list.id }} </u> </p>
                 
-               
+                
                 </div>
-                                            
+            
             </article>
         
         </section>
-        
         
         <br>
 	

@@ -6,6 +6,25 @@
     box-shadow: 10px 10px 5px #888888;
 }
 
+
+.inact{
+    display:none;
+}
+
+.active {
+    height:1000px;
+    width:100%;
+    position:absolute;
+    background-color: cornflowerblue;
+    line-height: 100%;
+    display:block;
+    text-align: center;
+    z-index: 10;
+}
+
+
+
+
 .row {
     height:500px;
 }

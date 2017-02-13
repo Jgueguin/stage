@@ -3,7 +3,7 @@
 {# ///////////////////////////  #}
 
 <!DOCTYPE html>
-<html>
+<html  >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +49,14 @@
     }
 </style>
 
-<body>
+<body  >
+
+<div id="save" class ="inact" >
+    <h1 >  Vous êtes inactif depuis trop longtemps </h1>
+    <input id="verif" type="button" name="reenter" value="Click to re-enter">
+
+</div>
+
 
 <div class="container-fluid">
 	
@@ -86,4 +93,72 @@
 </div>
 
 </body>
+
+
+<script>
+
+
+    function timer() {
+
+       
+
+
+
+    }
+
+
+
+
+    $(document).ready(function() {
+
+        var redirection;
+
+
+        // on fixe le temps d'inactivité à 2 s
+        time= 2000;
+
+        // lancement du timer
+        redirection = setTimeout(function () {
+            $('#save').removeClass('inact');
+            $('#save').addClass('active');
+
+        }, time);
+
+
+
+        // a chque fois que l'on bougera la souris, on remet à zero le timer
+        $('html').mousemove(function () {
+            clearTimeout(redirection);
+        });
+
+
+        $('input[name="reenter"]').click(function() {
+
+
+            // on désactive l'écran de veille
+            $('#save').removeClass('active');
+            $('#save').addClass('inact');
+
+
+            // et on relance le timer d'inactivité
+            redirection = setTimeout(function () {
+                $('#save').removeClass('inact');
+                $('#save').addClass('active');
+
+            }, time);
+
+
+
+
+        });
+
+
+
+        // fin script
+    });
+
+</Script>
+
+
+
 </html>

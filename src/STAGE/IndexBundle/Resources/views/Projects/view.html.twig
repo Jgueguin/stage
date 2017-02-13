@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block index_body %}
+    <div>
     <a  class="buttons btn btn-info" href="{{ path('projects_index_homepage') }}?content={{ content }}&page_limit=5" > Previous Page</a>
     <a  class="buttons btn btn-info" href="{{ path('modify_index_homepage',{'id':project.id}) }}" > Edit </a>
     <a  class="buttons btn btn-info" href="{{ path('delete_index_homepage',{'id':project.id}) }}" > Delete </a>
@@ -20,6 +21,6 @@
 
     <p> <br>  {{ project.projDescr|raw }} </p>
       
-
+</div>
 
 {% endblock %}
