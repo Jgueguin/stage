@@ -18,7 +18,6 @@
 		
 		{# chargement normalize.css #}
         <link rel="stylesheet" href="{{asset("bundles/stageindex/css/normalize.css")}}">
-		{# <link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css"> #}
 		
 		{# Chargement CSS Bootstrap #}
 		{# <link rel="stylesheet" href="{{asset("bundles/stageindex/css/bootstrap3-2-0.min.css")}}"> #}
@@ -51,11 +50,17 @@
 
 <body  >
 
-<div id="save" class ="inact" >
-    <h1 >  Vous êtes inactif depuis trop longtemps </h1>
-    <input id="verif" type="button" name="reenter" value="Click to re-enter">
 
+{# Div qui va afficher une boîte demandant de clicker pour revenir sur la page active #}
+<div id="save" class ="inact" >
+    <h1 >  You've been inactive too long </h1>
+    <input id="verif" type="button" name="reenter" value="Click to re-enter">
 </div>
+
+
+{# // Div grisée qui se met au dessus de la page active pour empêcher d'y clicker #}
+<div id="blanc" class="inact">  </div>
+
 
 
 <div class="container-fluid">
@@ -97,60 +102,98 @@
 
 <script>
 
-
-    function timer() {
-
-       
-
-
-
-    }
-
-
-
-
     $(document).ready(function() {
 
         var redirection;
+        var redirection2;
 
+        //définitions des temps d'inactivité
+        time  = 2000;
+        time2 = 8000;
 
-        // on fixe le temps d'inactivité à 2 s
-        time= 2000;
-
-        // lancement du timer
-        redirection = setTimeout(function () {
-            $('#save').removeClass('inact');
-            $('#save').addClass('active');
-
-        }, time);
-
-
-
-        // a chque fois que l'on bougera la souris, on remet à zero le timer
+        // a chaque fois que l'on bouge la souris, on regarde l'état des div
         $('html').mousemove(function () {
-            clearTimeout(redirection);
+
+
+            //on recupére la valeur display du style des DIV save et blanc
+            var valuesave  = $("#save").css("display");
+            var valueblanc = $("#blanc").css("display");
+
+
+            // la souris a bougé et si aucune des deux div n'est active, on change leurs styles pour les activer au bout du premier temps d'inactivité
+            if (  (valuesave==='none') && (valueblanc ==='none') ) {
+
+                // a chaque fois que la souris bouge on reinitialise le timer
+                clearTimeout(redirection);
+
+                
+                // des que la souris ne bouge plus , le timer se met en route
+                redirection = setTimeout(function () {
+
+
+                    // on chnage les styles des deux DIV
+                    $('#blanc').removeClass('inact');
+                    $('#blanc').addClass('activeblanc');
+
+                    $('#save').removeClass('inact');
+                    $('#save').addClass('active');
+
+                    // on récupère l'état des div
+                    {# valuesave  = $("#save").css("display");
+                    valueblanc = $("#blanc").css("display"); #}
+
+                    
+                    // fin fonction Timer 1
+                }, time);
+
+                // une fois qu'on est sorti du premier timer on enclenche un deuxième timer d'inactivité
+
+                clearTimeout(redirection2);
+
+                redirection2 = setTimeout(function () {
+
+                    console.log("intérieur timeout2:");
+                    $('#save').removeClass('active');
+                    $('#save').addClass('inact');
+
+                }, time2);
+            }
+
+            // fin fonction mousemove
         });
 
 
+
+
+        // si on clicke sur le bouton, on revient sur la page active en désactivant les styles des deux DIV
         $('input[name="reenter"]').click(function() {
 
+            // on désactive l'écran de veille en changeant la classe des div
 
-            // on désactive l'écran de veille
+            $('#blanc').removeClass('activeblanc');
+            $('#blanc').addClass('inact');
+
             $('#save').removeClass('active');
             $('#save').addClass('inact');
 
-
-            // et on relance le timer d'inactivité
-            redirection = setTimeout(function () {
-                $('#save').removeClass('inact');
-                $('#save').addClass('active');
-
-            }, time);
-
-
-
-
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
