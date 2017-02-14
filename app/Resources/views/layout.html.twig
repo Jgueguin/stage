@@ -59,7 +59,16 @@
 
 
 {# // Div grisée qui se met au dessus de la page active pour empêcher d'y clicker #}
-<div id="blanc" class="inact">  </div>
+<div id="blanc" class="inact">
+
+    <div id="screensaver">
+    
+        <h1>  Please Reconnect</h1></div>
+    
+    
+    </div>
+    
+
 
 
 
@@ -108,8 +117,10 @@
         var redirection2;
 
         //définitions des temps d'inactivité
-        time  = 2000;
-        time2 = 8000;
+        
+        time  = 1500;
+        
+        time2 = 6000;
 
         // a chaque fois que l'on bouge la souris, on regarde l'état des div
         $('html').mousemove(function () {
@@ -134,9 +145,12 @@
                     // on chnage les styles des deux DIV
                     $('#blanc').removeClass('inact');
                     $('#blanc').addClass('activeblanc');
+                    
 
                     $('#save').removeClass('inact');
                     $('#save').addClass('active');
+
+                 
 
                     // on récupère l'état des div
                     {# valuesave  = $("#save").css("display");

@@ -1,16 +1,11 @@
 /* Custom Css associated to the project  */
 
 
-
-
-
-
 .jumbotron {
     background-color: lightsalmon;
     color: #ffffff;
     box-shadow: 10px 10px 5px #888888;
 }
-
 
 
 /* définition de l'écran de veille */
@@ -19,23 +14,41 @@
 }
 
 .active {
-    height:250px;
+    height:100px;
     width:500px;
     position:fixed;
-    background-color: lightcoral;
+    background-color: papayawhip;
     display:block;
     text-align: center;
     z-index: 10;
     margin:100px auto 100px auto;
     border-radius: 10px;
-    top: 100px;
+    top: 250px;
     bottom: 0;
     left: 0;
     right: 0;
+    line-height: normal;
+}
 
 
+#screensaver {
+    height:100px;
+    width:500px;
+    position:fixed;
+    display:block;
+    text-align: center;
+    z-index: 10;
+    margin:100px auto 100px auto;
+    border-radius: 10px;
+    top: 250px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: papayawhip;
+    line-height: normal;
 
 }
+
 
 .activeblanc {
     height:150%;

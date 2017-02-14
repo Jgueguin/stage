@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a3b48abe-894b-4436-a186-fdcf1bb50df4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/public/css/css-perso.css" afterPath="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/public/css/css-perso.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/STAGE/TinyBundle/Resources/views/Default/index.html.twig" afterPath="$PROJECT_DIR$/src/STAGE/TinyBundle/Resources/views/Default/index.html.twig" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="165" column="0" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="122" column="17" lean-forward="false" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
               <folding>
                 <element signature="n#head#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#328#858#0#Twig" expanded="false" />
@@ -48,20 +46,22 @@
                 <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#2662#4353#0#HTML" expanded="true" />
-                <element signature="e#3347#3885#0#HTML" expanded="true" />
-                <element signature="e#4100#4281#0#HTML" expanded="true" />
-                <element signature="e#4520#4795#0#HTML" expanded="true" />
+                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#2774#4505#0#HTML" expanded="true" />
+                <element signature="e#3459#4037#0#HTML" expanded="true" />
+                <element signature="e#4252#4433#0#HTML" expanded="true" />
+                <element signature="e#4672#4947#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="css-perso.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="css-perso.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/bundles/stageindex/css/css-perso.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -120,8 +120,8 @@
         <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/liste.html.twig" />
         <option value="$PROJECT_DIR$/src/STAGE/IndexBundle/Resources/views/Projects/view.html.twig" />
         <option value="$PROJECT_DIR$/src/STAGE/TinyBundle/Resources/views/Default/index.html.twig" />
-        <option value="$PROJECT_DIR$/web/bundles/stageindex/css/css-perso.css" />
         <option value="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
+        <option value="$PROJECT_DIR$/web/bundles/stageindex/css/css-perso.css" />
       </list>
     </option>
   </component>
@@ -661,12 +661,12 @@
       <workItem from="1486973337362" duration="12516000" />
       <workItem from="1486998440432" duration="5086000" />
       <workItem from="1487009586479" duration="1144000" />
-      <workItem from="1487059993661" duration="20173000" />
+      <workItem from="1487059993661" duration="23916000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153761000" />
+    <option name="totallyTimeSpent" value="157504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1039,18 +1039,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/stageindex/css/css-perso.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="165" column="0" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+        <state relative-caret-position="323">
+          <caret line="122" column="17" lean-forward="false" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#328#858#0#Twig" expanded="false" />
@@ -1058,11 +1050,21 @@
             <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#2662#4353#0#HTML" expanded="true" />
-            <element signature="e#3347#3885#0#HTML" expanded="true" />
-            <element signature="e#4100#4281#0#HTML" expanded="true" />
-            <element signature="e#4520#4795#0#HTML" expanded="true" />
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#2774#4505#0#HTML" expanded="true" />
+            <element signature="e#3459#4037#0#HTML" expanded="true" />
+            <element signature="e#4252#4433#0#HTML" expanded="true" />
+            <element signature="e#4672#4947#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/stageindex/css/css-perso.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
