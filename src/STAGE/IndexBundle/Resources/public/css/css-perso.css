@@ -14,7 +14,7 @@
 }
 
 .active {
-    height:100px;
+    height:105px;
     width:500px;
     position:fixed;
     background-color: papayawhip;
@@ -32,7 +32,7 @@
 
 
 #screensaver {
-    height:100px;
+    height:95px;
     width:500px;
     position:fixed;
     display:block;
